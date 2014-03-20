@@ -4,17 +4,34 @@
  * and open the template in the editor.
  */
 
-window.onload = function() {
-
-    $('#login-modal').dialog({
-        modal: true,
-        width: 700,
-        height: 250,
-        resizable: false,
-        buttons: [{
-                id: "btn-login",
-                text: "Entrar",
-            }]
+$(document).ready(function(){
+    
+    $('#txtEnrollment').keypress(function(e){
+        
+        if(e.which == '13'){
+            if($(this).val() == null || $(this).val() == ''){
+                alert('erro');
+                return;
+            }
+            
+            var enrollment = $(this).val();
+            
+            $.ajax({
+              type: "POST",
+              url: './account/login',
+              data: { enrollment : enrollment },
+              success: function(response){
+                  if(response.success){
+                      alert(response.message);
+                  }else{
+                      alert(response.message);
+                  }
+              },
+              dataType: 'json'
+            });
+                    
+        }
+        
     });
-
-};
+    
+});

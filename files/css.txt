@@ -38,6 +38,10 @@ header {
     background: #fff;
 }
 
+br{
+    clear: both;
+}
+
 .page {
     position: relative;
     background: url(../../resources/images/bg-gradient-sand.png) repeat-x 0 0,url(../../resources/images/bg-sand.png) repeat 0 0,#f5f1e8;
@@ -69,7 +73,7 @@ header {
     width: 650px;
     height: 300px;
     margin: 150px auto 0;
-    text-shadow: 0 1px #336699;
+    text-shadow: 1px 1px #336699;
     color: #fff;
 }
 
@@ -78,31 +82,39 @@ header {
 }
 
 .login-content h2{
-    font-size:40px;
+    font-size:36px;
 }
 
-.login-content p{
-    font-size: 20px;
+.login-wrapper{
+    height: auto;
+    overflow: auto;
+    border-radius: 8px;
 }
 
-.login-header{
-    margin: 0 0 10px 0;
+.login-wrapper i{
+    background: #D64203;
+/*    border-right: 1px solid #000;*/
+    display: block;
+    width: 60px;
+    height: 60px;
+    float: left;
+    padding: 10px 0;
+    margin: 1px 0 0 0;
+/*    border-radius: 4px 0 0 4px;*/
 }
 
 #txtEnrollment{
-    position: relative;
     height: 60px;
     display: block;
+    float: left;
     padding: 10px 20px;
-    border-radius: 4px 4px 4px 4px;
+/*    border-radius: 0 4px 4px 0;*/
     font-size: 30px;
     font-weight: bold;
     text-align: center;
     font-style: italic;
-    border:1px solid #000;
-    width: 93%;
-}
-
-.red-text{
+    border-right: 1px solid #000;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
     color: #D64203;
 }

@@ -10,15 +10,33 @@
         <link rel="stylesheet" href="resources/css/pepper-grinder/jquery-ui-1.10.4.custom.min.css" />
         <link rel="stylesheet" href="resources/css/core.css" />
     </head>
-    
+
     <body>
     <header>
-        
+
     </header>
 
     <div class="page">
         <div class="page-container">
-            <div id="login-modal"></div>
+
+        </div>
+    </div>
+
+    <div id="login-overlay">
+        <div class="login-container">
+            <div class="login-content">
+                <div class="login-header">
+                    <h2>Terminal de Consultas</h2>
+                    <p>Informe seu número de matrícula</p>
+                    <p class="red-text">**Somente números</p>
+                </div>
+                <div class="login-wrapper">
+                    <input id="txtEnrollment" type="text" class="red-text" />
+                </div>
+                <br />
+                <p>Tecle 'ENTER' para ENTRAR</p>
+                <p>Tecle 'ESC' para SAIR</p>
+            </div>
         </div>
     </div>
 </body>
