@@ -12,9 +12,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java de anonymous complex type.
+ * <p>Java class for anonymous complex type.
  * 
- * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -53,7 +53,7 @@ public class UpdateListItems {
     protected UpdateListItems.Updates updates;
 
     /**
-     * Obtém o valor da propriedade listName.
+     * Gets the value of the listName property.
      * 
      * @return
      *     possible object is
@@ -65,7 +65,7 @@ public class UpdateListItems {
     }
 
     /**
-     * Define o valor da propriedade listName.
+     * Sets the value of the listName property.
      * 
      * @param value
      *     allowed object is
@@ -77,7 +77,7 @@ public class UpdateListItems {
     }
 
     /**
-     * Obtém o valor da propriedade updates.
+     * Gets the value of the updates property.
      * 
      * @return
      *     possible object is
@@ -89,7 +89,7 @@ public class UpdateListItems {
     }
 
     /**
-     * Define o valor da propriedade updates.
+     * Sets the value of the updates property.
      * 
      * @param value
      *     allowed object is
@@ -102,9 +102,9 @@ public class UpdateListItems {
 
 
     /**
-     * <p>Classe Java de anonymous complex type.
+     * <p>Java class for anonymous complex type.
      * 
-     * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+     * <p>The following schema fragment specifies the expected content contained within this class.
      * 
      * <pre>
      * &lt;complexType>
@@ -148,8 +148,8 @@ public class UpdateListItems {
          * 
          * <p>
          * Objects of the following type(s) are allowed in the list
-         * {@link Object }
          * {@link String }
+         * {@link Object }
          * 
          * 
          */

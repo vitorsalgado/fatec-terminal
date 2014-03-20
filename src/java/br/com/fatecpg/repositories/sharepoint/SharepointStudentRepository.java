@@ -10,9 +10,9 @@ import br.com.fatecpg.core.entities.History;
 import br.com.fatecpg.core.entities.Student;
 import br.com.fatecpg.core.repositories.StudentRepository;
 import br.com.fatecpg.sharepoint.SharepointListsHelper;
-
 import com.microsoft.schemas.sharepoint.soap.GetListItems.Query;
 import com.microsoft.schemas.sharepoint.soap.GetListItems.ViewFields;
+
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Service;
@@ -26,7 +26,7 @@ import org.w3c.dom.NodeList;
 @Service
 public class SharepointStudentRepository implements StudentRepository {
 
-    private static final String[] defaultViewFieldslist = {"Nome_x0020_Completo", "Curso", "Turno", "Registro_x0020_Geral", "Org_x00e3_o_x0020_Emissor_x0020_", "Data_x0020_de_x0020_Emiss_x00e3_", "Data_x0020_de_x0020_Nascimento", "Naturalidade", "Endere_x00e7_o", "Bairro", "Munic_x00ed_pio_x0020_da_x0020_R", "Estado_x0020_de_x0020_Resid_x00e", "Telefone_x0020__x0028_res_x0029_", "Celular", "Email", "Turma_x0020_de_x0020_Ingresso", "Data_x0020_da_x0020_Matr_x00ed_c", "Observa_x00e7__x00f5_es_x0020_pa"};
+    private static final String[] defaultViewFieldsList = {"Nome_x0020_Completo", "Curso", "Turno", "Registro_x0020_Geral", "Org_x00e3_o_x0020_Emissor_x0020_", "Data_x0020_de_x0020_Emiss_x00e3_", "Data_x0020_de_x0020_Nascimento", "Naturalidade", "Endere_x00e7_o", "Bairro", "Munic_x00ed_pio_x0020_da_x0020_R", "Estado_x0020_de_x0020_Resid_x00e", "Telefone_x0020__x0028_res_x0029_", "Celular", "Email", "Turma_x0020_de_x0020_Ingresso", "Data_x0020_da_x0020_Matr_x00ed_c", "Observa_x00e7__x00f5_es_x0020_pa"};
     private static final String listPath = "http://www.fatecpg.com.br/fatec/_vti_bin/lists.asmx";
 
     @Override
@@ -35,9 +35,9 @@ public class SharepointStudentRepository implements StudentRepository {
         if (enrollment == null || enrollment.isEmpty()) {
             throw new IllegalArgumentException("enrollment can't be null or empty.");
         }
-        
+
         String listName = "Matrículas";
-        ViewFields viewFields = SharepointListsHelper.createViewFieldsNode(defaultViewFieldslist);
+        ViewFields viewFields = SharepointListsHelper.createViewFieldsNode(defaultViewFieldsList);
         String strQuery = String.format("<Query><Where><Eq><FieldRef Name='Title'/><Value Type='Text'>%s</Value></Eq></Where></Query>", enrollment);
         Query query = SharepointListsHelper.createQueryNode(strQuery);
 
@@ -96,12 +96,11 @@ public class SharepointStudentRepository implements StudentRepository {
 
     @Override
     public List<History> getHistory(String enrollment) {
-        
-        if(enrollment == null || enrollment.isEmpty())
+
+        if (enrollment == null || enrollment.isEmpty()) {
             throw new IllegalArgumentException("enrollment can't be null or empty.");
-        
-        
-        
+        }
+
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

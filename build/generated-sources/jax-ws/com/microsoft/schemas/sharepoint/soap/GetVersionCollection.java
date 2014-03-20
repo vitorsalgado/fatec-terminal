@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java de anonymous complex type.
+ * <p>Java class for anonymous complex type.
  * 
- * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -42,7 +42,7 @@ public class GetVersionCollection {
     protected String strFieldName;
 
     /**
-     * Obtém o valor da propriedade strlistID.
+     * Gets the value of the strlistID property.
      * 
      * @return
      *     possible object is
@@ -54,7 +54,7 @@ public class GetVersionCollection {
     }
 
     /**
-     * Define o valor da propriedade strlistID.
+     * Sets the value of the strlistID property.
      * 
      * @param value
      *     allowed object is
@@ -66,7 +66,7 @@ public class GetVersionCollection {
     }
 
     /**
-     * Obtém o valor da propriedade strlistItemID.
+     * Gets the value of the strlistItemID property.
      * 
      * @return
      *     possible object is
@@ -78,7 +78,7 @@ public class GetVersionCollection {
     }
 
     /**
-     * Define o valor da propriedade strlistItemID.
+     * Sets the value of the strlistItemID property.
      * 
      * @param value
      *     allowed object is
@@ -90,7 +90,7 @@ public class GetVersionCollection {
     }
 
     /**
-     * Obtém o valor da propriedade strFieldName.
+     * Gets the value of the strFieldName property.
      * 
      * @return
      *     possible object is
@@ -102,7 +102,7 @@ public class GetVersionCollection {
     }
 
     /**
-     * Define o valor da propriedade strFieldName.
+     * Sets the value of the strFieldName property.
      * 
      * @param value
      *     allowed object is

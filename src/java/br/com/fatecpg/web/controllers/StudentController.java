@@ -7,14 +7,13 @@ package br.com.fatecpg.web.controllers;
 
 import br.com.fatecpg.core.entities.Student;
 import br.com.fatecpg.core.repositories.StudentRepository;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.http.converter.json.MappingJacksonHttpMessageConverter;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -36,9 +35,8 @@ public class StudentController {
     @RequestMapping(value = "/student", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody()
     public Student student(ModelMap model) {
-        
+
         Student student = studentRepository.getStudent("F0713376");
-        model.addAttribute("message", student.getName());
 
         return student;
     }

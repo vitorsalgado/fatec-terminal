@@ -9,9 +9,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java de anonymous complex type.
+ * <p>Java class for anonymous complex type.
  * 
- * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -38,7 +38,7 @@ public class UndoCheckOutResponse {
     protected boolean undoCheckOutResult;
 
     /**
-     * Obtém o valor da propriedade undoCheckOutResult.
+     * Gets the value of the undoCheckOutResult property.
      * 
      */
     public boolean isUndoCheckOutResult() {
@@ -46,7 +46,7 @@ public class UndoCheckOutResponse {
     }
 
     /**
-     * Define o valor da propriedade undoCheckOutResult.
+     * Sets the value of the undoCheckOutResult property.
      * 
      */
     public void setUndoCheckOutResult(boolean value) {

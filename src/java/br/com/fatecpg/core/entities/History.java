@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package br.com.fatecpg.core.entities;
 
 /**
@@ -11,7 +10,7 @@ package br.com.fatecpg.core.entities;
  * @author vitor.salgado
  */
 public class History {
-    
+
     private int ciclo;
     private String discipline;
     private String period;
@@ -84,6 +83,5 @@ public class History {
     public void setConcept(String concept) {
         this.concept = concept;
     }
-    
-    
+
 }

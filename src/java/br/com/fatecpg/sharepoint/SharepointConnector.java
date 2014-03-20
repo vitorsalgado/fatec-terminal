@@ -7,6 +7,7 @@ package br.com.fatecpg.sharepoint;
 
 import com.microsoft.schemas.sharepoint.soap.Lists;
 import com.microsoft.schemas.sharepoint.soap.ListsSoap;
+
 import javax.xml.ws.BindingProvider;
 
 /**
@@ -16,14 +17,17 @@ import javax.xml.ws.BindingProvider;
 public class SharepointConnector {
 
     public static ListsSoap getListsClient(String username, String password, String endPointAddress) {
-        if (username == null || username.isEmpty())
+        if (username == null || username.isEmpty()) {
             throw new IllegalArgumentException("username can't be null or empty.");
-        
-        if (password == null || username.isEmpty())
-            throw new IllegalArgumentException("passwor can't be null or empty.");
-        
-        if(endPointAddress == null || username.isEmpty())
+        }
+
+        if (password == null || username.isEmpty()) {
+            throw new IllegalArgumentException("password can't be null or empty.");
+        }
+
+        if (endPointAddress == null || username.isEmpty()) {
             throw new IllegalArgumentException("endPointAddress can't be null or empty.");
+        }
 
         Lists service = new Lists();
         ListsSoap port = service.getListsSoap();

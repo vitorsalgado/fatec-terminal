@@ -28,21 +28,21 @@ import org.xml.sax.SAXException;
  * @author vitor.salgado
  */
 public final class SharepointListsHelper {
-    
+
     private static final String username = "fatecpg\\vitor.hugo";
-    private static final String password = "123456";
-    
+    private static final String password = "<set_password>";
+
     public static NodeList executeQuery(String sitePath, String listName, Query query, ViewFields viewFields) {
         return executeQuery(sitePath, listName, query, viewFields, 0);
     }
-    
+
     public static NodeList executeQuery(String sitePath, String listName, Query query, ViewFields viewFields, int rowLimit) {
         QueryOptions queryOptions = null;
         String webID = "";
 
         ListsSoap listsSoapClient;
-        listsSoapClient = (ListsSoap) SharepointConnector.getListsClient(username, password, sitePath);        
-        
+        listsSoapClient = (ListsSoap) SharepointConnector.getListsClient(username, password, sitePath);
+
         GetListItemsResult result
                 = listsSoapClient.getListItems(listName, null, query, viewFields, String.valueOf(rowLimit), queryOptions, webID);
 
@@ -50,12 +50,12 @@ public final class SharepointListsHelper {
 
         if ((listResult != null) && (listResult instanceof ElementNSImpl)) {
             ElementNSImpl node = (ElementNSImpl) listResult;
-            
+
             NodeList list = node.getElementsByTagName("z:row");
-            
+
             return list;
         }
-        
+
         return null;
     }
 

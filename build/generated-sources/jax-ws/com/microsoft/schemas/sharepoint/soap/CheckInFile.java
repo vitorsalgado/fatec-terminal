@@ -9,9 +9,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java de anonymous complex type.
+ * <p>Java class for anonymous complex type.
  * 
- * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -44,7 +44,7 @@ public class CheckInFile {
     protected String checkinType;
 
     /**
-     * Obtém o valor da propriedade pageUrl.
+     * Gets the value of the pageUrl property.
      * 
      * @return
      *     possible object is
@@ -56,7 +56,7 @@ public class CheckInFile {
     }
 
     /**
-     * Define o valor da propriedade pageUrl.
+     * Sets the value of the pageUrl property.
      * 
      * @param value
      *     allowed object is
@@ -68,7 +68,7 @@ public class CheckInFile {
     }
 
     /**
-     * Obtém o valor da propriedade comment.
+     * Gets the value of the comment property.
      * 
      * @return
      *     possible object is
@@ -80,7 +80,7 @@ public class CheckInFile {
     }
 
     /**
-     * Define o valor da propriedade comment.
+     * Sets the value of the comment property.
      * 
      * @param value
      *     allowed object is
@@ -92,7 +92,7 @@ public class CheckInFile {
     }
 
     /**
-     * Obtém o valor da propriedade checkinType.
+     * Gets the value of the checkinType property.
      * 
      * @return
      *     possible object is
@@ -104,7 +104,7 @@ public class CheckInFile {
     }
 
     /**
-     * Define o valor da propriedade checkinType.
+     * Sets the value of the checkinType property.
      * 
      * @param value
      *     allowed object is

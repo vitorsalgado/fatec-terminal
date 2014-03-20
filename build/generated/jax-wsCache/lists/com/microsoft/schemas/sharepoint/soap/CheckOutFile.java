@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java de anonymous complex type.
+ * <p>Java class for anonymous complex type.
  * 
- * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -42,7 +42,7 @@ public class CheckOutFile {
     protected String lastmodified;
 
     /**
-     * Obtém o valor da propriedade pageUrl.
+     * Gets the value of the pageUrl property.
      * 
      * @return
      *     possible object is
@@ -54,7 +54,7 @@ public class CheckOutFile {
     }
 
     /**
-     * Define o valor da propriedade pageUrl.
+     * Sets the value of the pageUrl property.
      * 
      * @param value
      *     allowed object is
@@ -66,7 +66,7 @@ public class CheckOutFile {
     }
 
     /**
-     * Obtém o valor da propriedade checkoutToLocal.
+     * Gets the value of the checkoutToLocal property.
      * 
      * @return
      *     possible object is
@@ -78,7 +78,7 @@ public class CheckOutFile {
     }
 
     /**
-     * Define o valor da propriedade checkoutToLocal.
+     * Sets the value of the checkoutToLocal property.
      * 
      * @param value
      *     allowed object is
@@ -90,7 +90,7 @@ public class CheckOutFile {
     }
 
     /**
-     * Obtém o valor da propriedade lastmodified.
+     * Gets the value of the lastmodified property.
      * 
      * @return
      *     possible object is
@@ -102,7 +102,7 @@ public class CheckOutFile {
     }
 
     /**
-     * Define o valor da propriedade lastmodified.
+     * Sets the value of the lastmodified property.
      * 
      * @param value
      *     allowed object is

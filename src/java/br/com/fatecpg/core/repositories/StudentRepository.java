@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package br.com.fatecpg.core.repositories;
 
 import br.com.fatecpg.core.entities.EnrolledDisciplines;
@@ -17,9 +16,11 @@ import java.util.List;
  * @author vitor.salgado
  */
 public interface StudentRepository {
-    
+
     Student getStudent(String enrollment);
+
     List<EnrolledDisciplines> getEnrolledDisciplines(String enrollment);
+
     List<History> getHistory(String enrollment);
-    
+
 }

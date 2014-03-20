@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java de anonymous complex type.
+ * <p>Java class for anonymous complex type.
  * 
- * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -45,7 +45,7 @@ public class AddAttachment {
     protected byte[] attachment;
 
     /**
-     * Obtém o valor da propriedade listName.
+     * Gets the value of the listName property.
      * 
      * @return
      *     possible object is
@@ -57,7 +57,7 @@ public class AddAttachment {
     }
 
     /**
-     * Define o valor da propriedade listName.
+     * Sets the value of the listName property.
      * 
      * @param value
      *     allowed object is
@@ -69,7 +69,7 @@ public class AddAttachment {
     }
 
     /**
-     * Obtém o valor da propriedade listItemID.
+     * Gets the value of the listItemID property.
      * 
      * @return
      *     possible object is
@@ -81,7 +81,7 @@ public class AddAttachment {
     }
 
     /**
-     * Define o valor da propriedade listItemID.
+     * Sets the value of the listItemID property.
      * 
      * @param value
      *     allowed object is
@@ -93,7 +93,7 @@ public class AddAttachment {
     }
 
     /**
-     * Obtém o valor da propriedade fileName.
+     * Gets the value of the fileName property.
      * 
      * @return
      *     possible object is
@@ -105,7 +105,7 @@ public class AddAttachment {
     }
 
     /**
-     * Define o valor da propriedade fileName.
+     * Sets the value of the fileName property.
      * 
      * @param value
      *     allowed object is
@@ -117,7 +117,7 @@ public class AddAttachment {
     }
 
     /**
-     * Obtém o valor da propriedade attachment.
+     * Gets the value of the attachment property.
      * 
      * @return
      *     possible object is
@@ -128,7 +128,7 @@ public class AddAttachment {
     }
 
     /**
-     * Define o valor da propriedade attachment.
+     * Sets the value of the attachment property.
      * 
      * @param value
      *     allowed object is

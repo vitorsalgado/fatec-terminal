@@ -19,6 +19,14 @@
                     <file>${libs.jstl.classpath}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
+                <library dirs="200">
+                    <file>${file.reference.jackson-core-asl-1.8.1.jar}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.jackson-mapper-asl-1.8.1.jar}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
             </web-module-libraries>
             <web-module-additional-libraries/>
             <source-roots>
@@ -33,8 +41,8 @@
         </libraries>
         <spring-data xmlns="http://www.netbeans.org/ns/spring-data/1">
             <config-files>
-                <config-file>web/WEB-INF/spring/root-context.xml</config-file>
-                <config-file>web/WEB-INF/spring/servlet-context.xml</config-file>
+                <config-file>web/WEB-INF/spring/controllers.xml</config-file>
+                <config-file>web/WEB-INF/spring/dispatcher-servlet.xml</config-file>
             </config-files>
             <config-file-groups>
                 <config-file-group name="Grupo Default"/>
