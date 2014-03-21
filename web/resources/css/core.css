@@ -23,34 +23,24 @@ and open the template in the editor.
 
 body {
     font-size: 0.90em;
-    font-family: Tahoma, sans-serif;
+    font-family: 'Open Sans Condensed', sans-serif;
     overflow: hidden;
     color: #4d4e53;
+    background: #fff;
     background: url(../../resources/images/bg-gradient-sand.png) repeat-x 0 0,url(../../resources/images/bg-sand.png) repeat 0 0,#f5f1e8;
 }
 
 header {
     width: 100%;
-    position: relative;
     overflow: hidden;
     min-height: 40px;
     box-shadow: 0 0 1px #7a7a7a;
     background: #fff;
 }
 
-.page {
-    position: relative;
-    background: url(../../resources/images/bg-gradient-sand.png) repeat-x 0 0,url(../../resources/images/bg-sand.png) repeat 0 0,#f5f1e8;
-}
-
-.page:after {
-    z-index: 0;
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-    background: url(../../resources/images/bg-gradient-sand.png) repeat-x 0 0,url(../../resources/images/bg-sand.png) repeat 0 0,#f5f1e8;
+.wrap{
+    width: 90%;
+    margin: 20px auto;
 }
 
 #login-overlay{
@@ -69,7 +59,6 @@ header {
     width: 650px;
     height: 300px;
     margin: 150px auto 0;
-    text-shadow: 0 1px #336699;
     color: #fff;
 }
 
@@ -103,6 +92,19 @@ header {
     width: 93%;
 }
 
+#login-errors{
+    font-size: 24px;
+    margin:10px 0;
+}
+
 .red-text{
     color: #D64203;
+}
+
+.dark-text{
+    color:#484848;
+}
+
+.title-bar{
+    
 }

@@ -4,17 +4,42 @@
  * and open the template in the editor.
  */
 
-window.onload = function() {
+$(document).ready(function(){
 
-    $('#login-modal').dialog({
-        modal: true,
-        width: 700,
-        height: 250,
-        resizable: false,
-        buttons: [{
-                id: "btn-login",
-                text: "Entrar",
-            }]
+    $('#txtEnrollment').val('');
+    $('#txtEnrollment').focus();
+    
+    $('#txtEnrollment').keypress(function(e){
+        if(e.which == '13'){
+            if($(this).val() == null || $(this).val() == ''){
+                $('#login-errors').html('Informe um número de matrícula válido!').fadeIn();
+                return;
+            }
+            
+            var enrollment = $(this).val();
+            
+            $.ajax({
+              type: "POST",
+              url: './account/login',
+              data: { enrollment : enrollment },
+              success: function(response){
+                  if(response.success){
+                      $('#login-errors').hide();
+                      $('#login-overlay').fadeOut();
+                  }else{
+                      $('#login-errors').html(response.message).fadeIn();
+                  }
+              },
+              dataType: 'json'
+            });
+        }
     });
-
-};
+    
+    
+    $(this).keypress(function(e){
+       switch(e.which){
+           
+       } 
+    });
+    
+});

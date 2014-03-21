@@ -5,12 +5,14 @@
  */
 
 $(document).ready(function(){
+
+    $('#txtEnrollment').val('');
+    $('#txtEnrollment').focus();
     
     $('#txtEnrollment').keypress(function(e){
-        
         if(e.which == '13'){
             if($(this).val() == null || $(this).val() == ''){
-                alert('erro');
+                $('#login-errors').html('Informe um número de matrícula válido!').fadeIn();
                 return;
             }
             
@@ -22,16 +24,22 @@ $(document).ready(function(){
               data: { enrollment : enrollment },
               success: function(response){
                   if(response.success){
-                      alert(response.message);
+                      $('#login-errors').hide();
+                      $('#login-overlay').fadeOut();
                   }else{
-                      alert(response.message);
+                      $('#login-errors').html(response.message).fadeIn();
                   }
               },
               dataType: 'json'
             });
-                    
         }
-        
+    });
+    
+    
+    $(this).keypress(function(e){
+       switch(e.which){
+           
+       } 
     });
     
 });
