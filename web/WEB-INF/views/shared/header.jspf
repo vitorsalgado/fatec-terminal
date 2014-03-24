@@ -1,0 +1,11 @@
+<%@page import="br.com.fatecpg.core.entities.Student"%>
+<%@ page pageEncoding="UTF-8" %>
+<header>
+    <h1 class="page-title">
+        Terminal de Consultas - FATEC PG
+    </h1>
+    <div class="wrap">
+        <span id="student-info">
+        </span>
+    </div>
+</header>

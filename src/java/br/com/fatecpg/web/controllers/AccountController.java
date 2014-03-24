@@ -22,6 +22,7 @@ import br.com.fatecpg.web.viewmodels.LoginResponse;
 
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,35 +39,45 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class AccountController {
 
     private StudentRepository studentRepository;
+    private HttpSession session;
 
     @Autowired
     public void setStudentRepository(StudentRepository studentRepository) {
         this.studentRepository = studentRepository;
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST, produces = "application/json")
+    @Autowired
+    public void setSession(HttpSession session) {
+        this.session = session;
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public LoginResponse login(String enrollment, HttpSession session) {
+    public LoginResponse login(String enrollment) {
 
+        if(!enrollment.toLowerCase().contains("f"))
+            enrollment = "f" + enrollment;
+        
         LoginResponse response = new LoginResponse();
-        Student student = null;//studentRepository.getStudent(enrollment);
+        Student student = studentRepository.getStudent(enrollment);
 
-        //if (student == null) {
-        //    response.setSuccess(false);
-        //    response.setMessage(String.format("Nenhum aluno encontrado para o número de matrícula %s", enrollment));
-        //} else {
+        if (student == null) {
+            response.setSuccess(false);
+            response.setMessage(String.format("Nenhum aluno encontrado para o número de matrícula %s", enrollment));
+        } else {
             response.setSuccess(true);
-            session.setAttribute("enrollment", enrollment);
-        //}
-
+            response.setStudent(student);
+            this.session.setAttribute("student", student);
+        }
+        
         return response;
 
     }
 
-    @RequestMapping(value = "/account/logout")
-    public String logout(HttpSession session) {
+    @RequestMapping(value = "/logout", method = RequestMethod.POST)
+    public String logout() {
 
-        session.removeAttribute("enrollment");
+        session.removeAttribute("student");
         return "index";
     }
 

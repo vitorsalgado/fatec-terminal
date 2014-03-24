@@ -1,0 +1,18 @@
+<%@ page pageEncoding="UTF-8" %>
+<div id="login-overlay">
+    <div class="login-container">
+        <div class="login-content">
+            <div class="login-header">
+                <h2>Terminal de Consultas</h2>
+                <p>Informe seu número de matrícula</p>
+                <p class="red-text">**Somente números</p>
+            </div>
+            <div class="login-wrapper">
+                <input id="txtEnrollment" type="text" class="red-text" placeholder="seu número de matrícula" />
+            </div>
+            <br />
+            <p id="login-errors" class="red-text"></p>
+            <p>Tecle 'ENTER' para ENTRAR</p>
+        </div>
+    </div>
+</div>

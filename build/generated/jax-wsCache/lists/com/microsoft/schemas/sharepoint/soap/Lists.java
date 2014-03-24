@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "Lists", targetNamespace = "http://schemas.microsoft.com/sharepoint/soap/", wsdlLocation = "http://www.fatecpg.com.br/_vti_bin/lists.asmx?wsdl")
+@WebServiceClient(name = "Lists", targetNamespace = "http://schemas.microsoft.com/sharepoint/soap/", wsdlLocation = "http://www.fatecpg.com.br/fatec/_vti_bin/lists.asmx?wsdl")
 public class Lists
     extends Service
 {
@@ -30,7 +30,7 @@ public class Lists
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("http://www.fatecpg.com.br/_vti_bin/lists.asmx?wsdl");
+            url = new URL("http://www.fatecpg.com.br/fatec/_vti_bin/lists.asmx?wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }

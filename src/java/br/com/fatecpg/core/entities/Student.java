@@ -26,6 +26,7 @@ public class Student {
     private String enroll;
     private String name;
     private String course;
+    private String email;
 
     public int getId() {
         return id;
@@ -58,4 +59,13 @@ public class Student {
     public void setCourse(String Course) {
         this.course = Course;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
 }

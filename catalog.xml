@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
     <system systemId="http://www.fatecpg.com.br/vti_bin/lists.asmx" uri="src/conf/xml-resources/web-service-references/lists/wsdl/www.fatecpg.com.br/vti_bin/lists.asmx"/>
-    <system systemId="http://www.fatecpg.com.br/_vti_bin/lists.asmx" uri="src/conf/xml-resources/web-service-references/lists/wsdl/www.fatecpg.com.br/_vti_bin/lists.asmx"/>
-    <system systemId="http://www.fatecpg.com.br/fatec/_vti_bin/lists.asmx?wsdl" uri="src/conf/xml-resources/web-service-references/lists_2/wsdl/www.fatecpg.com.br/fatec/_vti_bin/lists.asmx.wsdl"/>
+    <system systemId="http://www.fatecpg.com.br/_vti_bin/lists.asmx" uri="src/conf/xml-resources/web-service-references/lists_1/wsdl/www.fatecpg.com.br/_vti_bin/lists.asmx"/>
     <system systemId="http://www.fatecpg.com.br/_vti_bin/lists.asmx?wsdl" uri="src/conf/xml-resources/web-service-references/lists/wsdl/www.fatecpg.com.br/_vti_bin/lists.asmx.wsdl"/>
+    <system systemId="http://www.fatecpg.com.br/fatec/_vti_bin/lists.asmx?wsdl" uri="src/conf/xml-resources/web-service-references/lists/wsdl/www.fatecpg.com.br/fatec/_vti_bin/lists.asmx.wsdl"/>
 </catalog>

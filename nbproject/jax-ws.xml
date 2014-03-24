@@ -3,8 +3,8 @@
   <services/>
   <clients>
     <client name="lists">
-      <wsdl-url>http://www.fatecpg.com.br/_vti_bin/lists.asmx?wsdl</wsdl-url>
-      <local-wsdl-file>www.fatecpg.com.br/_vti_bin/lists.asmx.wsdl</local-wsdl-file>
+      <wsdl-url>http://www.fatecpg.com.br/fatec/_vti_bin/lists.asmx?wsdl</wsdl-url>
+      <local-wsdl-file>www.fatecpg.com.br/fatec/_vti_bin/lists.asmx.wsdl</local-wsdl-file>
       <package-name>com.microsoft.schemas.sharepoint.soap</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>
@@ -22,7 +22,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://www.fatecpg.com.br/_vti_bin/lists.asmx?wsdl</wsimport-option-value>
+          <wsimport-option-value>http://www.fatecpg.com.br/fatec/_vti_bin/lists.asmx?wsdl</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>

@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2014 Vitor Hugo Salgado <vsalgadopb@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,10 +16,21 @@
  */
 package br.com.fatecpg.web.viewmodels;
 
+import br.com.fatecpg.core.entities.Student;
+
 /**
  *
  * @author vitor.salgado
  */
 public class LoginResponse extends AbstractResponse {
 
+    private Student student;
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
 }

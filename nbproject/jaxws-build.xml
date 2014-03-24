@@ -28,8 +28,8 @@
     </target>
     <target name="wsimport-client-lists" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/lists"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/lists" destdir="${build.generated.dir}/jax-wsCache/lists" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/lists/wsdl/www.fatecpg.com.br/_vti_bin/lists.asmx.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://www.fatecpg.com.br/_vti_bin/lists.asmx?wsdl" xnocompile="true" xendorsed="true">
-            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/lists/wsdl/www.fatecpg.com.br/_vti_bin/lists.asmx.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/lists" destdir="${build.generated.dir}/jax-wsCache/lists" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/lists/wsdl/www.fatecpg.com.br/fatec/_vti_bin/lists.asmx.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://www.fatecpg.com.br/fatec/_vti_bin/lists.asmx?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/lists/wsdl/www.fatecpg.com.br/fatec/_vti_bin/lists.asmx.wsdl"/>
             <produces dir="${build.generated.dir}/jax-wsCache/lists"/>
         </wsimport>
         <copy todir="${build.generated.sources.dir}/jax-ws">

@@ -16,17 +16,16 @@
  */
 package br.com.fatecpg.repositories.sharepoint;
 
-import br.com.fatecpg.core.entities.EnrolledDisciplines;
+import br.com.fatecpg.core.entities.EnrolledDiscipline;
 import br.com.fatecpg.core.entities.History;
 import br.com.fatecpg.core.entities.Student;
 import br.com.fatecpg.core.repositories.StudentRepository;
-import br.com.fatecpg.sharepoint.SharepointListsHelper;
 import com.microsoft.schemas.sharepoint.soap.GetListItems.Query;
 import com.microsoft.schemas.sharepoint.soap.GetListItems.ViewFields;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.NodeList;
 
@@ -34,7 +33,7 @@ import org.w3c.dom.NodeList;
  *
  * @author vitor.salgado
  */
-@Service
+@Repository
 public class SharepointStudentRepository implements StudentRepository {
 
     private static final String[] defaultViewFieldsList = {"Nome_x0020_Completo", "Curso", "Turno", "Registro_x0020_Geral", "Org_x00e3_o_x0020_Emissor_x0020_", "Data_x0020_de_x0020_Emiss_x00e3_", "Data_x0020_de_x0020_Nascimento", "Naturalidade", "Endere_x00e7_o", "Bairro", "Munic_x00ed_pio_x0020_da_x0020_R", "Estado_x0020_de_x0020_Resid_x00e", "Telefone_x0020__x0028_res_x0029_", "Celular", "Email", "Turma_x0020_de_x0020_Ingresso", "Data_x0020_da_x0020_Matr_x00ed_c", "Observa_x00e7__x00f5_es_x0020_pa"};
@@ -54,22 +53,25 @@ public class SharepointStudentRepository implements StudentRepository {
 
         NodeList list = SharepointListsHelper.executeQuery(listPath, listName, query, viewFields, 1);
 
+        if(list.getLength() == 0)
+            return null;
+        
         Student student = new Student();
 
         for (int i = 0; i < list.getLength(); i++) {
             NamedNodeMap attributes = list.item(i).getAttributes();
 
-            student.setId(Integer.parseInt(attributes.getNamedItem("ows_ID").getNodeValue()));
-            student.setName(attributes.getNamedItem("ows_Nome_x0020_Completo").getNodeValue());
-            student.setEnroll(attributes.getNamedItem("ows_Title").getNodeValue());
-            student.setCourse(attributes.getNamedItem("ows_Curso").getNodeValue());
+            student.setId(SharepointFieldsReader.readIntegerField(attributes, "ows_ID"));
+            student.setName(SharepointFieldsReader.readStringField(attributes, "ows_Nome_x0020_Completo"));
+            student.setEnroll(SharepointFieldsReader.readStringField(attributes, "ows_Title"));
+            student.setCourse(SharepointFieldsReader.readStringField(attributes, "ows_Curso"));
         }
 
         return student;
     }
 
     @Override
-    public List<EnrolledDisciplines> getEnrolledDisciplines(String enrollment) {
+    public List<EnrolledDiscipline> getEnrolledDisciplines(String enrollment) {
 
         if (enrollment == null || enrollment.isEmpty()) {
             throw new IllegalArgumentException("enrollment can't be null or empty.");
@@ -77,27 +79,28 @@ public class SharepointStudentRepository implements StudentRepository {
 
         String listName = "Disciplinas Matriculadas no Semestre";
         ViewFields viewFields = SharepointListsHelper.createViewFieldsNode("Disciplina", "Matr_x00ed_cula", "Situa_x00e7__x00e3_o", "Hist_x00f3_rico", "Turno", "Nota_x0020_1", "Nota_x0020_2", "Faltas_x0020__x0028_1_x00ba__x00", "Faltas_x0020__x0028_2_x00ba__x00", "Faltas", "M_x00e9_dia", "Conceito", "NP", "Author", "Created");
-        String strQuery = String.format("<Query><Where><Eq><FieldRef Name='Matr_x00ed_cula'/><Value Type='Text'>{0}</Value></Eq></Where></Query>", enrollment);
+        String strQuery = String.format("<Query><Where><Eq><FieldRef Name='Matr_x00ed_cula'/><Value Type='Text'>%s</Value></Eq></Where><OrderBy><FieldRef Name='Disciplina' Ascending='True' /></OrderBy></Query>", enrollment);
         Query query = SharepointListsHelper.createQueryNode(strQuery);
 
         NodeList list = SharepointListsHelper.executeQuery(listPath, listName, query, viewFields);
 
-        List<EnrolledDisciplines> enrolledDisciplines = new ArrayList<>();
+        List<EnrolledDiscipline> enrolledDisciplines = new ArrayList<>();
 
         for (int i = 0; i < list.getLength(); i++) {
             NamedNodeMap attributes = list.item(i).getAttributes();
-            EnrolledDisciplines enrolledDiscipline = new EnrolledDisciplines();
+            EnrolledDiscipline enrolledDiscipline = new EnrolledDiscipline();
 
-            String[] disciplineArray = attributes.getNamedItem("ows_Conceito").getNodeValue().split(";#");
+            String discipline = SharepointFieldsReader.readStringField(attributes, "ows_Disciplina");
+            String[] disciplineArray = discipline.split(";#");
 
-            enrolledDiscipline.setAbscenses1(Integer.parseInt(attributes.getNamedItem("ows_Faltas_x0020__x0028_1_x00ba__x00").getNodeValue()));
-            enrolledDiscipline.setAbscenses2(Integer.parseInt(attributes.getNamedItem("ows_Faltas_x0020__x0028_2_x00ba__x00").getNodeValue()));
-            enrolledDiscipline.setConcept(attributes.getNamedItem("ows_Conceito").getNodeValue());
+            enrolledDiscipline.setAbscenses1(SharepointFieldsReader.readIntegerField(attributes, "ows_Faltas_x0020__x0028_1_x00ba__x00"));
+            enrolledDiscipline.setAbscenses2(SharepointFieldsReader.readIntegerField(attributes, "ows_Faltas_x0020__x0028_2_x00ba__x00"));
+            enrolledDiscipline.setConcept(SharepointFieldsReader.readStringField(attributes, "ows_Conceito"));
             enrolledDiscipline.setDiscipline(disciplineArray[1]);
-            enrolledDiscipline.setGrade1(Double.parseDouble(attributes.getNamedItem("ows_Nota_x0020_1").getNodeValue()));
-            enrolledDiscipline.setGrade2(Double.parseDouble(attributes.getNamedItem("ows_Nota_x0020_2").getNodeValue()));
-            enrolledDiscipline.setGrade(Double.parseDouble(attributes.getNamedItem("ows_M_x00e9_dia").getNodeValue()));
-            enrolledDiscipline.setWorkGrade(Double.parseDouble(attributes.getNamedItem("ows_NP").getNodeValue()));
+            enrolledDiscipline.setGrade1(SharepointFieldsReader.readDoubleField(attributes, "ows_Nota_x0020_1"));
+            enrolledDiscipline.setGrade2(SharepointFieldsReader.readDoubleField(attributes, "ows_Nota_x0020_2"));
+            enrolledDiscipline.setGrade(SharepointFieldsReader.readDoubleField(attributes, "ows_M_x00e9_dia"));
+            enrolledDiscipline.setWorkGrade(SharepointFieldsReader.readDoubleField(attributes, "ows_NP"));
 
             enrolledDisciplines.add(enrolledDiscipline);
         }

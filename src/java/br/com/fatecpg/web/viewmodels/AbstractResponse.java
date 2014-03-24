@@ -17,7 +17,7 @@
 package br.com.fatecpg.web.viewmodels;
 
 /**
- *
+ * base class to application responses.
  * @author vitor.salgado
  */
 public abstract class AbstractResponse {

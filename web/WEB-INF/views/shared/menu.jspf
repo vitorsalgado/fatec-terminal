@@ -1,0 +1,20 @@
+<%@ page pageEncoding="UTF-8" %>
+<div class="title-bar">
+    <h1>Tecle o número correspondente a opção desejada</h1>
+</div>
+<div class="menu-container">
+    <div class="menu-item clear">
+        <div>
+            <h2>Matrículas no Semestre</h2>
+            <p>Exibi informações de notas, faltas e conceito de todas as suas disciplinas matriculadas no semestre atual.</p>
+        </div>
+        <span>1. </span>
+    </div>
+    <div class="menu-item clear">
+        <div>
+            <h2>Histórico Completo</h2>
+            <p>Exibi informações de notas, faltas e conceito de todas as disciplinas cursadas até o momente na instituição.</p>
+        </div>
+        <span>2. </span>
+    </div>
+</div>
