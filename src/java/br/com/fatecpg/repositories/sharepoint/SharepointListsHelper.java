@@ -42,7 +42,7 @@ import org.xml.sax.SAXException;
 public final class SharepointListsHelper {
 
     private static final String username = "fatecpg\\vitor.hugo";
-    private static final String password = "123456";
+    private static final String password = "<password>";
 
     public static NodeList executeQuery(String sitePath, String listName, Query query, ViewFields viewFields) {
         return executeQuery(sitePath, listName, query, viewFields, 0);
