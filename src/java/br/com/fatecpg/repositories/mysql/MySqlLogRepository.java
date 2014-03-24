@@ -17,6 +17,7 @@
 package br.com.fatecpg.repositories.mysql;
 
 import br.com.fatecpg.core.entities.Log;
+import br.com.fatecpg.core.repositories.DbProvider;
 import br.com.fatecpg.core.repositories.LogRepository;
 
 import java.sql.Connection;
@@ -24,6 +25,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -33,6 +35,13 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class MySqlLogRepository implements LogRepository {
 
+    private DbProvider dbProvider;
+
+    @Autowired
+    public void setDbProvider(DbProvider dbProvider) {
+        this.dbProvider = dbProvider;
+    }
+    
     @Override
     public void add(Log log) {
         if (log == null) {
@@ -40,7 +49,7 @@ public class MySqlLogRepository implements LogRepository {
         }
 
         String sql = "insert into log (message, url, ipaddress, username, createdon, details) values (?, ?, ?, ?, ?, ?)";
-        Connection connection = MySqlDb.getConnection();
+        Connection connection = dbProvider.getConnection();
 
         try {
 
@@ -72,7 +81,7 @@ public class MySqlLogRepository implements LogRepository {
         Log log = null;
 
         String sql = "select id, message, url, ipaddress, usernamme, createdon, details from log where id = ?";
-        Connection connection = MySqlDb.getConnection();
+        Connection connection = dbProvider.getConnection();
 
         try {
             

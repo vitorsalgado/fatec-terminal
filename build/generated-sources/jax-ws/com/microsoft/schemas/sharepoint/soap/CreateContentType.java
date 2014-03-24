@@ -12,9 +12,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>Classe Java de anonymous complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
  * 
  * <pre>
  * &lt;complexType>
@@ -75,7 +75,7 @@ public class CreateContentType {
     protected String addToView;
 
     /**
-     * Gets the value of the listName property.
+     * Obtém o valor da propriedade listName.
      * 
      * @return
      *     possible object is
@@ -87,7 +87,7 @@ public class CreateContentType {
     }
 
     /**
-     * Sets the value of the listName property.
+     * Define o valor da propriedade listName.
      * 
      * @param value
      *     allowed object is
@@ -99,7 +99,7 @@ public class CreateContentType {
     }
 
     /**
-     * Gets the value of the displayName property.
+     * Obtém o valor da propriedade displayName.
      * 
      * @return
      *     possible object is
@@ -111,7 +111,7 @@ public class CreateContentType {
     }
 
     /**
-     * Sets the value of the displayName property.
+     * Define o valor da propriedade displayName.
      * 
      * @param value
      *     allowed object is
@@ -123,7 +123,7 @@ public class CreateContentType {
     }
 
     /**
-     * Gets the value of the parentType property.
+     * Obtém o valor da propriedade parentType.
      * 
      * @return
      *     possible object is
@@ -135,7 +135,7 @@ public class CreateContentType {
     }
 
     /**
-     * Sets the value of the parentType property.
+     * Define o valor da propriedade parentType.
      * 
      * @param value
      *     allowed object is
@@ -147,7 +147,7 @@ public class CreateContentType {
     }
 
     /**
-     * Gets the value of the fields property.
+     * Obtém o valor da propriedade fields.
      * 
      * @return
      *     possible object is
@@ -159,7 +159,7 @@ public class CreateContentType {
     }
 
     /**
-     * Sets the value of the fields property.
+     * Define o valor da propriedade fields.
      * 
      * @param value
      *     allowed object is
@@ -171,7 +171,7 @@ public class CreateContentType {
     }
 
     /**
-     * Gets the value of the contentTypeProperties property.
+     * Obtém o valor da propriedade contentTypeProperties.
      * 
      * @return
      *     possible object is
@@ -183,7 +183,7 @@ public class CreateContentType {
     }
 
     /**
-     * Sets the value of the contentTypeProperties property.
+     * Define o valor da propriedade contentTypeProperties.
      * 
      * @param value
      *     allowed object is
@@ -195,7 +195,7 @@ public class CreateContentType {
     }
 
     /**
-     * Gets the value of the addToView property.
+     * Obtém o valor da propriedade addToView.
      * 
      * @return
      *     possible object is
@@ -207,7 +207,7 @@ public class CreateContentType {
     }
 
     /**
-     * Sets the value of the addToView property.
+     * Define o valor da propriedade addToView.
      * 
      * @param value
      *     allowed object is
@@ -220,9 +220,9 @@ public class CreateContentType {
 
 
     /**
-     * <p>Java class for anonymous complex type.
+     * <p>Classe Java de anonymous complex type.
      * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
+     * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
      * 
      * <pre>
      * &lt;complexType>
@@ -282,9 +282,9 @@ public class CreateContentType {
 
 
     /**
-     * <p>Java class for anonymous complex type.
+     * <p>Classe Java de anonymous complex type.
      * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
+     * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
      * 
      * <pre>
      * &lt;complexType>

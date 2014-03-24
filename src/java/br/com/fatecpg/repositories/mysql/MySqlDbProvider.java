@@ -16,23 +16,46 @@
  */
 package br.com.fatecpg.repositories.mysql;
 
+import br.com.fatecpg.core.repositories.DbProvider;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Vitor Hugo Salgado <vsalgadopb@gmail.com>
  */
-public class MySqlDb {
+@Service
+public class MySqlDbProvider implements DbProvider {
 
-    private static Connection mssqlConnection;
+    private Connection mssqlConnection;
+    private String mysqlUsername;
+    private String mysqlPassword;
+    private String mysqlUrl;
 
-    public static Connection getConnection() {
+    @Value("#{appProperties['mysqlUsername']}")
+    public void setMysqlUsername(String mysqlUsername) {
+        this.mysqlUsername = mysqlUsername;
+    }
+
+    @Value("#{appProperties['mysqlPassword']}")
+    public void setMysqlPassword(String mysqlPassword) {
+        this.mysqlPassword = mysqlPassword;
+    }
+
+    @Value("#{appProperties['mysqlUrl']}")
+    public void setMysqlUrl(String mysqlUrl) {
+        this.mysqlUrl = mysqlUrl;
+    }
+
+    @Override
+    public Connection getConnection() {
         return refreshConnection();
     }
 
-    private static Connection refreshConnection() {
+    private Connection refreshConnection() {
         try {
             if (mssqlConnection == null || mssqlConnection.isValid(100)) {
                 mssqlConnection = createConnection();
@@ -43,20 +66,15 @@ public class MySqlDb {
         return mssqlConnection;
     }
 
-    private static Connection createConnection() {
+    private Connection createConnection() {
         Connection connection = null;
 
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
-            
-            String uid = "root";
-            String password = "mysql123";
-            
-            String url = String.format("jdbc:mysql://localhost:3306/fatec-log");
-            
+
             DriverManager.setLoginTimeout(1);
-            connection = DriverManager.getConnection(url, uid, password);
+            connection = DriverManager.getConnection(this.mysqlUrl, this.mysqlUsername, this.mysqlPassword);
 
         } catch (ClassNotFoundException | SQLException ex) {
             throw new RuntimeException(ex);

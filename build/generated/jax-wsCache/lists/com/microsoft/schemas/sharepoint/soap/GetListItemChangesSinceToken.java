@@ -12,9 +12,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>Classe Java de anonymous complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
  * 
  * <pre>
  * &lt;complexType>
@@ -101,7 +101,7 @@ public class GetListItemChangesSinceToken {
     protected GetListItemChangesSinceToken.Contains contains;
 
     /**
-     * Gets the value of the listName property.
+     * Obtém o valor da propriedade listName.
      * 
      * @return
      *     possible object is
@@ -113,7 +113,7 @@ public class GetListItemChangesSinceToken {
     }
 
     /**
-     * Sets the value of the listName property.
+     * Define o valor da propriedade listName.
      * 
      * @param value
      *     allowed object is
@@ -125,7 +125,7 @@ public class GetListItemChangesSinceToken {
     }
 
     /**
-     * Gets the value of the viewName property.
+     * Obtém o valor da propriedade viewName.
      * 
      * @return
      *     possible object is
@@ -137,7 +137,7 @@ public class GetListItemChangesSinceToken {
     }
 
     /**
-     * Sets the value of the viewName property.
+     * Define o valor da propriedade viewName.
      * 
      * @param value
      *     allowed object is
@@ -149,7 +149,7 @@ public class GetListItemChangesSinceToken {
     }
 
     /**
-     * Gets the value of the query property.
+     * Obtém o valor da propriedade query.
      * 
      * @return
      *     possible object is
@@ -161,7 +161,7 @@ public class GetListItemChangesSinceToken {
     }
 
     /**
-     * Sets the value of the query property.
+     * Define o valor da propriedade query.
      * 
      * @param value
      *     allowed object is
@@ -173,7 +173,7 @@ public class GetListItemChangesSinceToken {
     }
 
     /**
-     * Gets the value of the viewFields property.
+     * Obtém o valor da propriedade viewFields.
      * 
      * @return
      *     possible object is
@@ -185,7 +185,7 @@ public class GetListItemChangesSinceToken {
     }
 
     /**
-     * Sets the value of the viewFields property.
+     * Define o valor da propriedade viewFields.
      * 
      * @param value
      *     allowed object is
@@ -197,7 +197,7 @@ public class GetListItemChangesSinceToken {
     }
 
     /**
-     * Gets the value of the rowLimit property.
+     * Obtém o valor da propriedade rowLimit.
      * 
      * @return
      *     possible object is
@@ -209,7 +209,7 @@ public class GetListItemChangesSinceToken {
     }
 
     /**
-     * Sets the value of the rowLimit property.
+     * Define o valor da propriedade rowLimit.
      * 
      * @param value
      *     allowed object is
@@ -221,7 +221,7 @@ public class GetListItemChangesSinceToken {
     }
 
     /**
-     * Gets the value of the queryOptions property.
+     * Obtém o valor da propriedade queryOptions.
      * 
      * @return
      *     possible object is
@@ -233,7 +233,7 @@ public class GetListItemChangesSinceToken {
     }
 
     /**
-     * Sets the value of the queryOptions property.
+     * Define o valor da propriedade queryOptions.
      * 
      * @param value
      *     allowed object is
@@ -245,7 +245,7 @@ public class GetListItemChangesSinceToken {
     }
 
     /**
-     * Gets the value of the changeToken property.
+     * Obtém o valor da propriedade changeToken.
      * 
      * @return
      *     possible object is
@@ -257,7 +257,7 @@ public class GetListItemChangesSinceToken {
     }
 
     /**
-     * Sets the value of the changeToken property.
+     * Define o valor da propriedade changeToken.
      * 
      * @param value
      *     allowed object is
@@ -269,7 +269,7 @@ public class GetListItemChangesSinceToken {
     }
 
     /**
-     * Gets the value of the contains property.
+     * Obtém o valor da propriedade contains.
      * 
      * @return
      *     possible object is
@@ -281,7 +281,7 @@ public class GetListItemChangesSinceToken {
     }
 
     /**
-     * Sets the value of the contains property.
+     * Define o valor da propriedade contains.
      * 
      * @param value
      *     allowed object is
@@ -294,9 +294,9 @@ public class GetListItemChangesSinceToken {
 
 
     /**
-     * <p>Java class for anonymous complex type.
+     * <p>Classe Java de anonymous complex type.
      * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
+     * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
      * 
      * <pre>
      * &lt;complexType>
@@ -356,9 +356,9 @@ public class GetListItemChangesSinceToken {
 
 
     /**
-     * <p>Java class for anonymous complex type.
+     * <p>Classe Java de anonymous complex type.
      * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
+     * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
      * 
      * <pre>
      * &lt;complexType>
@@ -418,9 +418,9 @@ public class GetListItemChangesSinceToken {
 
 
     /**
-     * <p>Java class for anonymous complex type.
+     * <p>Classe Java de anonymous complex type.
      * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
+     * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
      * 
      * <pre>
      * &lt;complexType>
@@ -480,9 +480,9 @@ public class GetListItemChangesSinceToken {
 
 
     /**
-     * <p>Java class for anonymous complex type.
+     * <p>Classe Java de anonymous complex type.
      * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
+     * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
      * 
      * <pre>
      * &lt;complexType>

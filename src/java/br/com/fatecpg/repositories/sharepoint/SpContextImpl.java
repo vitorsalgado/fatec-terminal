@@ -16,6 +16,7 @@
  */
 package br.com.fatecpg.repositories.sharepoint;
 
+import br.com.fatecpg.core.repositories.SpContext;
 import br.com.fatecpg.core.common.BasicAuthenticator;
 import com.microsoft.schemas.sharepoint.soap.GetListItems.Query;
 import com.microsoft.schemas.sharepoint.soap.GetListItems.QueryOptions;
@@ -29,6 +30,8 @@ import java.io.StringReader;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -39,24 +42,37 @@ import org.xml.sax.SAXException;
  *
  * @author vitor.salgado
  */
-public final class SharepointListsHelper {
+@Service
+public class SpContextImpl implements SpContext {
 
-    private static final String username = "fatecpg\\vitor.hugo";
-    private static final String password = "<password>";
+    private String username;
+    private String password; 
+    
+    @Value("#{appProperties['sharepointUsername']}")
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-    public static NodeList executeQuery(String sitePath, String listName, Query query, ViewFields viewFields) {
+    @Value("#{appProperties['sharepointPassword']}")
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @Override
+    public NodeList executeQuery(String sitePath, String listName, Query query, ViewFields viewFields) {
         return executeQuery(sitePath, listName, query, viewFields, 0);
     }
 
-    public static NodeList executeQuery(String sitePath, String listName, Query query, ViewFields viewFields, int rowLimit) {
+    @Override
+    public NodeList executeQuery(String sitePath, String listName, Query query, ViewFields viewFields, int rowLimit) {
         QueryOptions queryOptions = null;
         String webID = "";
 
-        BasicAuthenticator auth = new BasicAuthenticator(username, password);
+        BasicAuthenticator auth = new BasicAuthenticator(this.username, this.password);
         auth.authenticate();
         
         ListsSoap listsSoapClient;
-        listsSoapClient = (ListsSoap) SharepointConnector.getListsClient(username, password, sitePath);
+        listsSoapClient = (ListsSoap) SharepointConnector.getListsClient(this.username, this.password, sitePath);
 
         GetListItemsResult result
                 = listsSoapClient.getListItems(listName, null, query, viewFields, String.valueOf(rowLimit), queryOptions, webID);
@@ -74,7 +90,8 @@ public final class SharepointListsHelper {
         return null;
     }
 
-    public static ViewFields createViewFieldsNode(String... fields) {
+    @Override
+    public ViewFields createViewFieldsNode(String... fields) {
         ViewFields viewFields = new ViewFields();
 
         if (fields.length <= 0) {
@@ -97,7 +114,8 @@ public final class SharepointListsHelper {
         return viewFields;
     }
 
-    public static Query createQueryNode(String strQuery) {
+    @Override
+    public Query createQueryNode(String strQuery) {
 
         if (strQuery == null || strQuery.isEmpty()) {
             throw new IllegalArgumentException("strQuery can't be null or empty.");
@@ -109,7 +127,7 @@ public final class SharepointListsHelper {
         return query;
     }
 
-    private static Element generateXmlNode(String sXML) {
+    private Element generateXmlNode(String sXML) {
 
         Document documentOptions = null;
         DocumentBuilder builder;

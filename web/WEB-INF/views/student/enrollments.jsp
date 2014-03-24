@@ -60,7 +60,6 @@
                 </table>
                 <ul class="grid-detail">
                     <li><a href="javascript:void(0);">Total de disciplinas matrículas <b>${model.count}</b></a></li>
-                    <li></li>
                 </ul>
             </div>
         </div>

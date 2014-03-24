@@ -16,8 +16,6 @@
  */
 package br.com.fatecpg.core.entities;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.util.Date;
 
 /**
@@ -27,6 +25,7 @@ import java.util.Date;
 public class Log {
 
     private int id;
+    private String applicationName;
     private String message;
     private String url;
     private String ipAddress;
@@ -88,5 +87,13 @@ public class Log {
 
     public void setDetails(String details) {
         this.details = details;
+    }
+
+    public String getApplicationName() {
+        return applicationName;
+    }
+
+    public void setApplicationName(String applicationName) {
+        this.applicationName = applicationName;
     }
 }

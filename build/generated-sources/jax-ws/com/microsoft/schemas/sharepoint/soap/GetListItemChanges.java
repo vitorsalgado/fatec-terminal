@@ -12,9 +12,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>Classe Java de anonymous complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
  * 
  * <pre>
  * &lt;complexType>
@@ -69,7 +69,7 @@ public class GetListItemChanges {
     protected GetListItemChanges.Contains contains;
 
     /**
-     * Gets the value of the listName property.
+     * Obtém o valor da propriedade listName.
      * 
      * @return
      *     possible object is
@@ -81,7 +81,7 @@ public class GetListItemChanges {
     }
 
     /**
-     * Sets the value of the listName property.
+     * Define o valor da propriedade listName.
      * 
      * @param value
      *     allowed object is
@@ -93,7 +93,7 @@ public class GetListItemChanges {
     }
 
     /**
-     * Gets the value of the viewFields property.
+     * Obtém o valor da propriedade viewFields.
      * 
      * @return
      *     possible object is
@@ -105,7 +105,7 @@ public class GetListItemChanges {
     }
 
     /**
-     * Sets the value of the viewFields property.
+     * Define o valor da propriedade viewFields.
      * 
      * @param value
      *     allowed object is
@@ -117,7 +117,7 @@ public class GetListItemChanges {
     }
 
     /**
-     * Gets the value of the since property.
+     * Obtém o valor da propriedade since.
      * 
      * @return
      *     possible object is
@@ -129,7 +129,7 @@ public class GetListItemChanges {
     }
 
     /**
-     * Sets the value of the since property.
+     * Define o valor da propriedade since.
      * 
      * @param value
      *     allowed object is
@@ -141,7 +141,7 @@ public class GetListItemChanges {
     }
 
     /**
-     * Gets the value of the contains property.
+     * Obtém o valor da propriedade contains.
      * 
      * @return
      *     possible object is
@@ -153,7 +153,7 @@ public class GetListItemChanges {
     }
 
     /**
-     * Sets the value of the contains property.
+     * Define o valor da propriedade contains.
      * 
      * @param value
      *     allowed object is
@@ -166,9 +166,9 @@ public class GetListItemChanges {
 
 
     /**
-     * <p>Java class for anonymous complex type.
+     * <p>Classe Java de anonymous complex type.
      * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
+     * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
      * 
      * <pre>
      * &lt;complexType>
@@ -228,9 +228,9 @@ public class GetListItemChanges {
 
 
     /**
-     * <p>Java class for anonymous complex type.
+     * <p>Classe Java de anonymous complex type.
      * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
+     * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
      * 
      * <pre>
      * &lt;complexType>

@@ -129,7 +129,7 @@ $(document).ready(function() {
                         $('#loading-container').show();
                     },
                     success: function(response) {
-                        var table = createMatriculasTable(response.enrolledDisciplines);
+                        var table = createMatriculasTable(response);
                         $('#page-content').html('').append(table);
                         $('#page-title').html('Matrículas no Semestre');
                     },
@@ -166,10 +166,12 @@ $(document).ready(function() {
 });
 
 
-function createMatriculasTable(matriculas) {
+function createMatriculasTable(responseObj) {
     var table = document.createElement('table');
     var tbody = document.createElement('tbody');
     var thead = document.createElement('thead');
+    
+    var matriculas = responseObj.enrolledDisciplines;
 
     for (var i = 0; i < matriculas.length; i++) {
         var matricula = matriculas[i];

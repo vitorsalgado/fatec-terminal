@@ -9,9 +9,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>Classe Java de anonymous complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
  * 
  * <pre>
  * &lt;complexType>
@@ -47,7 +47,7 @@ public class AddListFromFeature {
     protected int templateID;
 
     /**
-     * Gets the value of the listName property.
+     * Obtém o valor da propriedade listName.
      * 
      * @return
      *     possible object is
@@ -59,7 +59,7 @@ public class AddListFromFeature {
     }
 
     /**
-     * Sets the value of the listName property.
+     * Define o valor da propriedade listName.
      * 
      * @param value
      *     allowed object is
@@ -71,7 +71,7 @@ public class AddListFromFeature {
     }
 
     /**
-     * Gets the value of the description property.
+     * Obtém o valor da propriedade description.
      * 
      * @return
      *     possible object is
@@ -83,7 +83,7 @@ public class AddListFromFeature {
     }
 
     /**
-     * Sets the value of the description property.
+     * Define o valor da propriedade description.
      * 
      * @param value
      *     allowed object is
@@ -95,7 +95,7 @@ public class AddListFromFeature {
     }
 
     /**
-     * Gets the value of the featureID property.
+     * Obtém o valor da propriedade featureID.
      * 
      * @return
      *     possible object is
@@ -107,7 +107,7 @@ public class AddListFromFeature {
     }
 
     /**
-     * Sets the value of the featureID property.
+     * Define o valor da propriedade featureID.
      * 
      * @param value
      *     allowed object is
@@ -119,7 +119,7 @@ public class AddListFromFeature {
     }
 
     /**
-     * Gets the value of the templateID property.
+     * Obtém o valor da propriedade templateID.
      * 
      */
     public int getTemplateID() {
@@ -127,7 +127,7 @@ public class AddListFromFeature {
     }
 
     /**
-     * Sets the value of the templateID property.
+     * Define o valor da propriedade templateID.
      * 
      */
     public void setTemplateID(int value) {
