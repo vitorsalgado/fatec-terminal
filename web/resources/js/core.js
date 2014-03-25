@@ -39,13 +39,16 @@ var equalKey = 187;
 var currentSelectedOption = 0;
 var enroll = '';
 
+var sessionTimer;
+
 $(document).ready(function() {
 
     $('#txtEnrollment').val('');
     setTimeout($('#txtEnrollment').focus(), 100);
 
     $(this).ajaxError(function(event, jqxhr, settings, exception) {
-        alert('fail');
+        logout();
+        $('#login-errors').html(exception);
     });
 
     $('#txtEnrollment').keypress(function(e) {
@@ -79,6 +82,13 @@ $(document).ready(function() {
                         $('#login-errors').hide();
                         $('#login-overlay').fadeOut();
                         $('#student-info').html('Bem-vindo(a), ' + response.student.name);
+                        
+//                        setTimeout(function(){
+//                            if(enroll != null && enroll != ''){
+//                                logout();
+//                            }
+//                        }, 600000);
+
                     } else {
                         $('#login-errors').html(response.message).fadeIn();
                         setTimeout($('#txtEnrollment').focus(), 100);
@@ -97,19 +107,12 @@ $(document).ready(function() {
 
         switch (key) {
             case escapeKey:
+            case zeroKey:
+            case numpad0Key:
                 if (isTxtEnrollmentFocused() || (enroll == '' && currentSelectedOption == 0))
                     return;
-
-                $.post('./account/logout', null, function() {
-                    $('#content').hide();
-                    $('#index-content').fadeIn();
-                    $('#txtEnrollment').val('');
-                    $('#login-overlay').fadeIn();
-                    
-                    setTimeout($('#txtEnrollment').focus(), 100);
-
-                    currentSelectedOption = 0;
-                });
+                
+                logout();
 
                 break;
 
@@ -130,7 +133,8 @@ $(document).ready(function() {
                     },
                     success: function(response) {
                         var table = createMatriculasTable(response);
-                        $('#page-content').html('').append(table);
+                        var detail = createMatriculasDetail(response);
+                        $('#page-content').html('').append(table).append(detail);
                         $('#page-title').html('Matrículas no Semestre');
                     },
                     complete: function() {
@@ -147,8 +151,8 @@ $(document).ready(function() {
                 if (isTxtEnrollmentFocused() || currentSelectedOption == 0)
                     return;
 
-                document.getElementById('page-content').scrollTop =
-                        document.getElementById('page-content').scrollTop + 25;
+                document.getElementById('body').scrollTop =
+                        document.getElementById('body').scrollTop + 25;
 
                 break;
 
@@ -158,19 +162,33 @@ $(document).ready(function() {
                 if (isTxtEnrollmentFocused() || currentSelectedOption == 0)
                     return;
 
-                document.getElementById('page-content').scrollTop =
-                        document.getElementById('page-content').scrollTop - 25;
+                document.getElementById('body').scrollTop =
+                        document.getElementById('body').scrollTop - 25;
                 break;
         }
     });
 });
 
+function logout() {
+    $.post('./account/logout', null, function() {
+        enroll = '';
+        
+        $('#content').hide();
+        $('#index-content').fadeIn();
+        $('#txtEnrollment').val('');
+        $('#login-overlay').fadeIn();
+
+        setTimeout($('#txtEnrollment').focus(), 100);
+
+        currentSelectedOption = 0;
+    });
+}
 
 function createMatriculasTable(responseObj) {
     var table = document.createElement('table');
     var tbody = document.createElement('tbody');
     var thead = document.createElement('thead');
-    
+
     var matriculas = responseObj.enrolledDisciplines;
 
     for (var i = 0; i < matriculas.length; i++) {
@@ -178,19 +196,19 @@ function createMatriculasTable(responseObj) {
         var tr = document.createElement('tr');
 
         createAndAppendTd(tr, matricula.discipline);
-        if(matricula.grade1 < 6)
+        if (matricula.grade1 < 6)
             createAndAppendTd(tr, matricula.grade1, 'red-text');
         else
             createAndAppendTd(tr, matricula.grade1);
         createAndAppendTd(tr, matricula.abscenses1);
-        if(matricula.grade2 < 6)
+        if (matricula.grade2 < 6)
             createAndAppendTd(tr, matricula.grade2, 'red-text');
         else
             createAndAppendTd(tr, matricula.grade2);
         createAndAppendTd(tr, matricula.abscenses2);
         createAndAppendTd(tr, matricula.workGrade);
         createAndAppendTd(tr, matricula.concept);
-        if(matricula.grade < 6)
+        if (matricula.grade < 6)
             createAndAppendTd(tr, matricula.grade, 'red-text');
         else
             createAndAppendTd(tr, matricula.grade);
@@ -216,6 +234,23 @@ function createMatriculasTable(responseObj) {
     table.appendChild(tbody);
 
     return table;
+}
+
+function createMatriculasDetail(responseObj) {
+    var total = responseObj.count;
+
+    var ul = document.createElement('ul');
+    var li = document.createElement('li');
+    var a = document.createElement('a');
+
+    ul.className = 'grid-detail';
+    a.href = 'javascript:void(0);';
+    a.innerHTML = 'Total de disciplinas matrículas <b>' + total + '</b>';
+
+    li.appendChild(a);
+    ul.appendChild(li);
+
+    return ul;
 }
 
 function isTxtEnrollmentFocused() {

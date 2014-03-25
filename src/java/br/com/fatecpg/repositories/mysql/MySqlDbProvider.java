@@ -31,6 +31,7 @@ import org.springframework.stereotype.Service;
 public class MySqlDbProvider implements DbProvider {
 
     private Connection mssqlConnection;
+
     private String mysqlUsername;
     private String mysqlPassword;
     private String mysqlUrl;
@@ -57,12 +58,15 @@ public class MySqlDbProvider implements DbProvider {
 
     private Connection refreshConnection() {
         try {
+            
             if (mssqlConnection == null || mssqlConnection.isValid(100)) {
                 mssqlConnection = createConnection();
             }
+            
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
         }
+
         return mssqlConnection;
     }
 

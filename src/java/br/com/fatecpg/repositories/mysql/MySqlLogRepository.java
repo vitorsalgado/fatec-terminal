@@ -41,7 +41,7 @@ public class MySqlLogRepository implements LogRepository {
     public void setDbProvider(DbProvider dbProvider) {
         this.dbProvider = dbProvider;
     }
-    
+
     @Override
     public void add(Log log) {
         if (log == null) {
@@ -64,7 +64,7 @@ public class MySqlLogRepository implements LogRepository {
 
             preparedStatement.setDate(5, sqlDate);
             preparedStatement.setString(6, log.getDetails());
-
+            
             preparedStatement.execute();
 
         } catch (SQLException ex) {
@@ -84,10 +84,10 @@ public class MySqlLogRepository implements LogRepository {
         Connection connection = dbProvider.getConnection();
 
         try {
-            
+
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, id);
-            
+
             ResultSet resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
@@ -100,7 +100,7 @@ public class MySqlLogRepository implements LogRepository {
                 log.setCreatedDate(resultSet.getDate("createdOn"));
                 log.setDetails(resultSet.getString("details"));
             }
-            
+
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
         }

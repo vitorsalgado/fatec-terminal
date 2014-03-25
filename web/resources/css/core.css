@@ -41,6 +41,7 @@ body {
     background-repeat: repeat;
     background-position: 0 0,0 0,0 0;
     background-color: #eaeff2;
+    min-width: 1024px;
 }
 
 header,
