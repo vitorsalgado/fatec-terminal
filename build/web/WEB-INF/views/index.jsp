@@ -9,13 +9,12 @@
         <title>FATEC PG - Terminal de Consultas</title>
         <link rel="icon" type="image/x-icon" href="resources/images/favicon.ico" />
         <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700,300italic' rel='stylesheet' type='text/css' />
-        <link rel="stylesheet" href="resources/css/pepper-grinder/jquery-ui-1.10.4.custom.min.css" />
         <link rel="stylesheet" href="resources/css/core.css" />
         <link rel="stylesheet" href="resources/css/site.css" />
         <link rel="stylesheet" href="resources/css/misc.css" />
     </head>
 
-    <body>
+    <body id="body">
         <%@include file="shared/header.jspf" %>
 
         <div class="page">
@@ -36,6 +35,5 @@
     </body>
 
     <script src="resources/js/jquery-2.1.0.min.js"></script>
-    <script src="resources/js/jquery-ui-1.10.4.custom.min.js"></script>
     <script src="resources/js/core.js"></script>
 </html>

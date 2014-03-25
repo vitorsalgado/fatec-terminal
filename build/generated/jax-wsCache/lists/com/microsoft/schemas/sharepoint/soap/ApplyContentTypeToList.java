@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java de anonymous complex type.
+ * <p>Java class for anonymous complex type.
  * 
- * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -42,7 +42,7 @@ public class ApplyContentTypeToList {
     protected String listName;
 
     /**
-     * Obtém o valor da propriedade webUrl.
+     * Gets the value of the webUrl property.
      * 
      * @return
      *     possible object is
@@ -54,7 +54,7 @@ public class ApplyContentTypeToList {
     }
 
     /**
-     * Define o valor da propriedade webUrl.
+     * Sets the value of the webUrl property.
      * 
      * @param value
      *     allowed object is
@@ -66,7 +66,7 @@ public class ApplyContentTypeToList {
     }
 
     /**
-     * Obtém o valor da propriedade contentTypeId.
+     * Gets the value of the contentTypeId property.
      * 
      * @return
      *     possible object is
@@ -78,7 +78,7 @@ public class ApplyContentTypeToList {
     }
 
     /**
-     * Define o valor da propriedade contentTypeId.
+     * Sets the value of the contentTypeId property.
      * 
      * @param value
      *     allowed object is
@@ -90,7 +90,7 @@ public class ApplyContentTypeToList {
     }
 
     /**
-     * Obtém o valor da propriedade listName.
+     * Gets the value of the listName property.
      * 
      * @return
      *     possible object is
@@ -102,7 +102,7 @@ public class ApplyContentTypeToList {
     }
 
     /**
-     * Define o valor da propriedade listName.
+     * Sets the value of the listName property.
      * 
      * @param value
      *     allowed object is

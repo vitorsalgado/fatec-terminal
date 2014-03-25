@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java de anonymous complex type.
+ * <p>Java class for anonymous complex type.
  * 
- * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -39,7 +39,7 @@ public class AddDiscussionBoardItem {
     protected byte[] message;
 
     /**
-     * Obtém o valor da propriedade listName.
+     * Gets the value of the listName property.
      * 
      * @return
      *     possible object is
@@ -51,7 +51,7 @@ public class AddDiscussionBoardItem {
     }
 
     /**
-     * Define o valor da propriedade listName.
+     * Sets the value of the listName property.
      * 
      * @param value
      *     allowed object is
@@ -63,7 +63,7 @@ public class AddDiscussionBoardItem {
     }
 
     /**
-     * Obtém o valor da propriedade message.
+     * Gets the value of the message property.
      * 
      * @return
      *     possible object is
@@ -74,7 +74,7 @@ public class AddDiscussionBoardItem {
     }
 
     /**
-     * Define o valor da propriedade message.
+     * Sets the value of the message property.
      * 
      * @param value
      *     allowed object is

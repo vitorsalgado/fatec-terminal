@@ -12,9 +12,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java de anonymous complex type.
+ * <p>Java class for anonymous complex type.
  * 
- * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -53,7 +53,7 @@ public class UpdateContentTypesXmlDocument {
     protected UpdateContentTypesXmlDocument.NewDocument newDocument;
 
     /**
-     * Obtém o valor da propriedade listName.
+     * Gets the value of the listName property.
      * 
      * @return
      *     possible object is
@@ -65,7 +65,7 @@ public class UpdateContentTypesXmlDocument {
     }
 
     /**
-     * Define o valor da propriedade listName.
+     * Sets the value of the listName property.
      * 
      * @param value
      *     allowed object is
@@ -77,7 +77,7 @@ public class UpdateContentTypesXmlDocument {
     }
 
     /**
-     * Obtém o valor da propriedade newDocument.
+     * Gets the value of the newDocument property.
      * 
      * @return
      *     possible object is
@@ -89,7 +89,7 @@ public class UpdateContentTypesXmlDocument {
     }
 
     /**
-     * Define o valor da propriedade newDocument.
+     * Sets the value of the newDocument property.
      * 
      * @param value
      *     allowed object is
@@ -102,9 +102,9 @@ public class UpdateContentTypesXmlDocument {
 
 
     /**
-     * <p>Classe Java de anonymous complex type.
+     * <p>Java class for anonymous complex type.
      * 
-     * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+     * <p>The following schema fragment specifies the expected content contained within this class.
      * 
      * <pre>
      * &lt;complexType>

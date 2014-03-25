@@ -12,9 +12,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java de anonymous complex type.
+ * <p>Java class for anonymous complex type.
  * 
- * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -95,7 +95,7 @@ public class UpdateList {
     protected String listVersion;
 
     /**
-     * Obtém o valor da propriedade listName.
+     * Gets the value of the listName property.
      * 
      * @return
      *     possible object is
@@ -107,7 +107,7 @@ public class UpdateList {
     }
 
     /**
-     * Define o valor da propriedade listName.
+     * Sets the value of the listName property.
      * 
      * @param value
      *     allowed object is
@@ -119,7 +119,7 @@ public class UpdateList {
     }
 
     /**
-     * Obtém o valor da propriedade listProperties.
+     * Gets the value of the listProperties property.
      * 
      * @return
      *     possible object is
@@ -131,7 +131,7 @@ public class UpdateList {
     }
 
     /**
-     * Define o valor da propriedade listProperties.
+     * Sets the value of the listProperties property.
      * 
      * @param value
      *     allowed object is
@@ -143,7 +143,7 @@ public class UpdateList {
     }
 
     /**
-     * Obtém o valor da propriedade newFields.
+     * Gets the value of the newFields property.
      * 
      * @return
      *     possible object is
@@ -155,7 +155,7 @@ public class UpdateList {
     }
 
     /**
-     * Define o valor da propriedade newFields.
+     * Sets the value of the newFields property.
      * 
      * @param value
      *     allowed object is
@@ -167,7 +167,7 @@ public class UpdateList {
     }
 
     /**
-     * Obtém o valor da propriedade updateFields.
+     * Gets the value of the updateFields property.
      * 
      * @return
      *     possible object is
@@ -179,7 +179,7 @@ public class UpdateList {
     }
 
     /**
-     * Define o valor da propriedade updateFields.
+     * Sets the value of the updateFields property.
      * 
      * @param value
      *     allowed object is
@@ -191,7 +191,7 @@ public class UpdateList {
     }
 
     /**
-     * Obtém o valor da propriedade deleteFields.
+     * Gets the value of the deleteFields property.
      * 
      * @return
      *     possible object is
@@ -203,7 +203,7 @@ public class UpdateList {
     }
 
     /**
-     * Define o valor da propriedade deleteFields.
+     * Sets the value of the deleteFields property.
      * 
      * @param value
      *     allowed object is
@@ -215,7 +215,7 @@ public class UpdateList {
     }
 
     /**
-     * Obtém o valor da propriedade listVersion.
+     * Gets the value of the listVersion property.
      * 
      * @return
      *     possible object is
@@ -227,7 +227,7 @@ public class UpdateList {
     }
 
     /**
-     * Define o valor da propriedade listVersion.
+     * Sets the value of the listVersion property.
      * 
      * @param value
      *     allowed object is
@@ -240,9 +240,9 @@ public class UpdateList {
 
 
     /**
-     * <p>Classe Java de anonymous complex type.
+     * <p>Java class for anonymous complex type.
      * 
-     * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+     * <p>The following schema fragment specifies the expected content contained within this class.
      * 
      * <pre>
      * &lt;complexType>
@@ -302,9 +302,9 @@ public class UpdateList {
 
 
     /**
-     * <p>Classe Java de anonymous complex type.
+     * <p>Java class for anonymous complex type.
      * 
-     * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+     * <p>The following schema fragment specifies the expected content contained within this class.
      * 
      * <pre>
      * &lt;complexType>
@@ -364,9 +364,9 @@ public class UpdateList {
 
 
     /**
-     * <p>Classe Java de anonymous complex type.
+     * <p>Java class for anonymous complex type.
      * 
-     * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+     * <p>The following schema fragment specifies the expected content contained within this class.
      * 
      * <pre>
      * &lt;complexType>
@@ -426,9 +426,9 @@ public class UpdateList {
 
 
     /**
-     * <p>Classe Java de anonymous complex type.
+     * <p>Java class for anonymous complex type.
      * 
-     * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+     * <p>The following schema fragment specifies the expected content contained within this class.
      * 
      * <pre>
      * &lt;complexType>

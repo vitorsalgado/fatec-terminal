@@ -12,9 +12,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java de anonymous complex type.
+ * <p>Java class for anonymous complex type.
  * 
- * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -56,7 +56,7 @@ public class UpdateContentTypeXmlDocument {
     protected UpdateContentTypeXmlDocument.NewDocument newDocument;
 
     /**
-     * Obtém o valor da propriedade listName.
+     * Gets the value of the listName property.
      * 
      * @return
      *     possible object is
@@ -68,7 +68,7 @@ public class UpdateContentTypeXmlDocument {
     }
 
     /**
-     * Define o valor da propriedade listName.
+     * Sets the value of the listName property.
      * 
      * @param value
      *     allowed object is
@@ -80,7 +80,7 @@ public class UpdateContentTypeXmlDocument {
     }
 
     /**
-     * Obtém o valor da propriedade contentTypeId.
+     * Gets the value of the contentTypeId property.
      * 
      * @return
      *     possible object is
@@ -92,7 +92,7 @@ public class UpdateContentTypeXmlDocument {
     }
 
     /**
-     * Define o valor da propriedade contentTypeId.
+     * Sets the value of the contentTypeId property.
      * 
      * @param value
      *     allowed object is
@@ -104,7 +104,7 @@ public class UpdateContentTypeXmlDocument {
     }
 
     /**
-     * Obtém o valor da propriedade newDocument.
+     * Gets the value of the newDocument property.
      * 
      * @return
      *     possible object is
@@ -116,7 +116,7 @@ public class UpdateContentTypeXmlDocument {
     }
 
     /**
-     * Define o valor da propriedade newDocument.
+     * Sets the value of the newDocument property.
      * 
      * @param value
      *     allowed object is
@@ -129,9 +129,9 @@ public class UpdateContentTypeXmlDocument {
 
 
     /**
-     * <p>Classe Java de anonymous complex type.
+     * <p>Java class for anonymous complex type.
      * 
-     * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+     * <p>The following schema fragment specifies the expected content contained within this class.
      * 
      * <pre>
      * &lt;complexType>
