@@ -9,9 +9,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>Classe Java de anonymous complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
  * 
  * <pre>
  * &lt;complexType>
@@ -38,7 +38,7 @@ public class CheckInFileResponse {
     protected boolean checkInFileResult;
 
     /**
-     * Gets the value of the checkInFileResult property.
+     * Obtém o valor da propriedade checkInFileResult.
      * 
      */
     public boolean isCheckInFileResult() {
@@ -46,7 +46,7 @@ public class CheckInFileResponse {
     }
 
     /**
-     * Sets the value of the checkInFileResult property.
+     * Define o valor da propriedade checkInFileResult.
      * 
      */
     public void setCheckInFileResult(boolean value) {

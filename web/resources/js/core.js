@@ -24,14 +24,14 @@ var escapeKey = 27;
 
 var numpad0Key = 96;
 var numpad1Key = 97;
-var numpad2Key = 0;
+var numpad2Key = 98;
 var numpad3Key = 0;
 var numpadAddKey = 107;
 var numpadSubtractKey = 109;
 
 var zeroKey = 48;
 var oneKey = 49;
-var twoKey = 0;
+var twoKey = 50;
 var threeKey = 0;
 var subtractKey = 189;
 var equalKey = 187;
@@ -40,9 +40,11 @@ var currentSelectedOption = 0;
 var enroll = '';
 
 var sessionTimer;
+var blockAction = false;
 
 $(document).ready(function() {
 
+    $('#esc-description-text').html('SAIR');
     $('#txtEnrollment').val('');
     setTimeout($('#txtEnrollment').focus(), 100);
 
@@ -74,6 +76,8 @@ $(document).ready(function() {
                 beforeSend: function() {
                     $('#txtEnrollment').prop('disabled', true);
                     $('#loading-container').show();
+                    
+                    blockAction = true;
                 },
                 success: function(response) {
                     if (response.success) {
@@ -82,7 +86,7 @@ $(document).ready(function() {
                         $('#login-errors').hide();
                         $('#login-overlay').fadeOut();
                         $('#student-info').html('Bem-vindo(a), ' + response.student.name);
-                        
+
 //                        setTimeout(function(){
 //                            if(enroll != null && enroll != ''){
 //                                logout();
@@ -97,6 +101,8 @@ $(document).ready(function() {
                 complete: function() {
                     $('#txtEnrollment').prop('disabled', false);
                     $('#loading-container').hide();
+                    
+                    blockAction = false;
                 }
             });
         }
@@ -109,41 +115,79 @@ $(document).ready(function() {
             case escapeKey:
             case zeroKey:
             case numpad0Key:
-                if (isTxtEnrollmentFocused() || (enroll == '' && currentSelectedOption == 0))
+                if (isTxtEnrollmentFocused() || blockAction)
                     return;
                 
-                logout();
+                blockAction = true;
+
+                if (currentSelectedOption == 0)
+                    logout();
+                else
+                    showMenu();
+
+                blockAction = false;
 
                 break;
 
             case numpad1Key:
             case oneKey:
-                if (isTxtEnrollmentFocused() || currentSelectedOption == 1)
+                
+                if (isTxtEnrollmentFocused() || currentSelectedOption == 1 || blockAction)
                     return;
 
                 currentSelectedOption = 1;
 
                 $.ajax({
-                    type: 'GET',
+                    type: 'POST',
                     data: 'json',
                     url: './student/enrollments',
                     beforeSend: function() {
                         $('#index-content').hide();
                         $('#loading-container').show();
+                        blockAction = true;
                     },
                     success: function(response) {
-                        var table = createMatriculasTable(response);
-                        var detail = createMatriculasDetail(response);
-                        $('#page-content').html('').append(table).append(detail);
-                        $('#page-title').html('Matrículas no Semestre');
+                        $('#page-content').html(response);
+                        $('#esc-description-text').html('VOLTAR');
                     },
                     complete: function() {
                         $('#content').fadeIn();
                         $('#loading-container').hide();
+                        blockAction = false;
                     }
                 });
 
                 break;
+                
+            case numpad2Key:
+            case twoKey:
+            
+                if (isTxtEnrollmentFocused() || currentSelectedOption == 2 || blockAction)
+                    return;
+
+                currentSelectedOption = 2;
+
+                $.ajax({
+                    type: 'POST',
+                    data: 'json',
+                    url: './student/history',
+                    beforeSend: function() {
+                        $('#index-content').hide();
+                        $('#loading-container').show();
+                        blockAction = true;
+                    },
+                    success: function(response) {
+                        $('#page-content').html(response);
+                        $('#esc-description-text').html('VOLTAR');
+                    },
+                    complete: function() {
+                        $('#content').fadeIn();
+                        $('#loading-container').hide();
+                        blockAction = false;
+                    }
+                });                
+            
+            break;
 
             case numpadAddKey:
             case equalKey:
@@ -172,103 +216,25 @@ $(document).ready(function() {
 function logout() {
     $.post('./account/logout', null, function() {
         enroll = '';
-        
+        currentSelectedOption = 0;
+
         $('#content').hide();
         $('#index-content').fadeIn();
         $('#txtEnrollment').val('');
         $('#login-overlay').fadeIn();
-
+        $('#esc-description-text').html('SAIR');
+        
         setTimeout($('#txtEnrollment').focus(), 100);
-
-        currentSelectedOption = 0;
     });
 }
 
-function createMatriculasTable(responseObj) {
-    var table = document.createElement('table');
-    var tbody = document.createElement('tbody');
-    var thead = document.createElement('thead');
-
-    var matriculas = responseObj.enrolledDisciplines;
-
-    for (var i = 0; i < matriculas.length; i++) {
-        var matricula = matriculas[i];
-        var tr = document.createElement('tr');
-
-        createAndAppendTd(tr, matricula.discipline);
-        if (matricula.grade1 < 6)
-            createAndAppendTd(tr, matricula.grade1, 'red-text');
-        else
-            createAndAppendTd(tr, matricula.grade1);
-        createAndAppendTd(tr, matricula.abscenses1);
-        if (matricula.grade2 < 6)
-            createAndAppendTd(tr, matricula.grade2, 'red-text');
-        else
-            createAndAppendTd(tr, matricula.grade2);
-        createAndAppendTd(tr, matricula.abscenses2);
-        createAndAppendTd(tr, matricula.workGrade);
-        createAndAppendTd(tr, matricula.concept);
-        if (matricula.grade < 6)
-            createAndAppendTd(tr, matricula.grade, 'red-text');
-        else
-            createAndAppendTd(tr, matricula.grade);
-
-        tbody.appendChild(tr);
-    }
-
-    var trHeader = document.createElement('tr');
-
-    createAndAppendTh(trHeader, 'Disciplina');
-    createAndAppendTh(trHeader, 'Nota P1');
-    createAndAppendTh(trHeader, 'Faltas 1° B.');
-    createAndAppendTh(trHeader, 'Nota P2');
-    createAndAppendTh(trHeader, 'Faltas 2° B.');
-    createAndAppendTh(trHeader, 'NP');
-    createAndAppendTh(trHeader, 'Conceito');
-    createAndAppendTh(trHeader, 'Média');
-
-    thead.appendChild(trHeader);
-
-    table.className = 'grid';
-    table.appendChild(thead);
-    table.appendChild(tbody);
-
-    return table;
-}
-
-function createMatriculasDetail(responseObj) {
-    var total = responseObj.count;
-
-    var ul = document.createElement('ul');
-    var li = document.createElement('li');
-    var a = document.createElement('a');
-
-    ul.className = 'grid-detail';
-    a.href = 'javascript:void(0);';
-    a.innerHTML = 'Total de disciplinas matrículas <b>' + total + '</b>';
-
-    li.appendChild(a);
-    ul.appendChild(li);
-
-    return ul;
+function showMenu() {
+    currentSelectedOption = 0;
+    $('#content').hide();
+    $('#esc-description-text').html('SAIR');
+    $('#index-content').fadeIn();
 }
 
 function isTxtEnrollmentFocused() {
     return document.activeElement.id == 'txtEnrollment';
-}
-
-function createAndAppendTd(row, value, className) {
-    var td = document.createElement('td');
-    td.innerHTML = value;
-    if (className != null && typeof className != 'undefined' && className != '')
-        td.className = className;
-    row.appendChild(td);
-}
-
-function createAndAppendTh(row, value, className) {
-    var th = document.createElement('th');
-    th.innerHTML = value;
-    if (className != null && typeof className != 'undefined' && className != '')
-        th.className = className;
-    row.appendChild(th);
 }

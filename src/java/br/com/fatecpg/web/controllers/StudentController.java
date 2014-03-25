@@ -17,12 +17,17 @@
 package br.com.fatecpg.web.controllers;
 
 import br.com.fatecpg.core.entities.EnrolledDiscipline;
+import br.com.fatecpg.core.entities.History;
+import br.com.fatecpg.core.entities.HistoryEntry;
 import br.com.fatecpg.core.entities.Student;
 import br.com.fatecpg.core.repositories.StudentRepository;
 import br.com.fatecpg.web.viewmodels.EnrolledDisciplinesModel;
+import br.com.fatecpg.web.viewmodels.HistoryModel;
+import java.util.Collections;
+import java.util.Comparator;
+
 import java.util.List;
 import javax.servlet.http.HttpSession;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -30,6 +35,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  *
@@ -47,13 +53,13 @@ public class StudentController {
     public void setStudentRepository(StudentRepository studentRepository) {
         this.studentRepository = studentRepository;
     }
-    
+
     @Autowired
     public void setSession(HttpSession session) {
         this.session = session;
     }
 
-    @RequestMapping(value = "/student", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/student", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody()
     public Student student() {
 
@@ -62,26 +68,51 @@ public class StudentController {
         return student;
     }
 
-    @RequestMapping(value = "/enrollments", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseBody
-    public EnrolledDisciplinesModel enrollments() {
+    @RequestMapping(value = "/enrollments", method = RequestMethod.POST)
+    public ModelAndView enrollments() {
 
-        Student student = (Student)session.getAttribute("student");
+        Student student = (Student) session.getAttribute("student");
         String enrollment = student.getEnroll();
-                
+
         List<EnrolledDiscipline> enrolledDisciplines = studentRepository.getEnrolledDisciplines("F0713376");
         EnrolledDisciplinesModel model = new EnrolledDisciplinesModel();
-        
-        if(enrolledDisciplines == null || enrolledDisciplines.size() <= 0){
+
+        if (enrolledDisciplines == null || enrolledDisciplines.size() <= 0) {
             model.setSuccess(false);
-            model.setMessage("Não foi encontrada nenhuma disciplina matrícula.");
-            
-            return model;
+            model.setMessage("Você não possui nenhuma disciplina matriculada :-(");
+
+            return new ModelAndView("/student/enrollments", "model", model);
         }
-        
+
         model.setEnrolledDisciplines(enrolledDisciplines);
         model.setSuccess(true);
-                
-        return model;
+
+        return new ModelAndView("/student/enrollments", "model", model);
+    }
+
+    @RequestMapping(value = "/history", method = RequestMethod.POST)
+    public ModelAndView history() {
+        History history = studentRepository.getHistory("F0713376");
+        HistoryModel model = new HistoryModel();
+        
+        if (history == null || history.getEntries() == null || history.getEntries().isEmpty()) {
+            model.setSuccess(false);
+            model.setMessage("Histórico não encontrado :-(");
+            return new ModelAndView("/student/history", "model", model);
+        }
+        
+        Collections.sort(history.getEntries(), new Comparator<HistoryEntry>() {
+
+            @Override
+            public int compare(HistoryEntry o1, HistoryEntry o2) {
+                return o1.getDiscipline().getCiclo() - o2.getDiscipline().getCiclo();
+            }
+
+        }); 
+        
+        model.setHistory(history);
+        model.setSuccess(true);
+
+        return new ModelAndView("/student/history", "model", model);
     }
 }

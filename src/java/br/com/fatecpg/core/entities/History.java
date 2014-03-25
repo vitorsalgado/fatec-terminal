@@ -1,5 +1,5 @@
-/* 
- * Copyright (C) 2014 Vitor Hugo Salgado <vsalgadopb@gmail.com>
+/*
+ * Copyright (C) 2014 vitor.salgado
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,83 +16,59 @@
  */
 package br.com.fatecpg.core.entities;
 
+import java.util.List;
+
 /**
  *
  * @author vitor.salgado
  */
 public class History {
 
-    private int ciclo;
-    private String discipline;
-    private String period;
-    private double Grade1;
-    private double Grade2;
-    private double np;
-    private double average;
-    private String concept;
+    private String enroll;
+    List<HistoryEntry> entries;
+    private double efficiencyPercent;
 
-    public int getCiclo() {
-        return ciclo;
+    public String getEnroll() {
+        return enroll;
     }
 
-    public void setCiclo(int ciclo) {
-        this.ciclo = ciclo;
+    public void setEnroll(String enroll) {
+        this.enroll = enroll;
     }
 
-    public String getDiscipline() {
-        return discipline;
+    public List<HistoryEntry> getEntries() {
+        return entries;
     }
 
-    public void setDiscipline(String discipline) {
-        this.discipline = discipline;
+    public void setEntries(List<HistoryEntry> entries) {
+        this.entries = entries;
     }
 
-    public String getPeriod() {
-        return period;
+    public double getEfficiencyPercent() {
+        return efficiencyPercent;
     }
 
-    public void setPeriod(String period) {
-        this.period = period;
+    public void setEfficiencyPercent(double efficiencyPercent) {
+        this.efficiencyPercent = efficiencyPercent;
     }
 
-    public double getGrade1() {
-        return Grade1;
+    public int getTotalCredits() {
+        int total = 0;
+
+        for (int i = 0; i < entries.size(); i++) {
+            i += entries.get(i).getDiscipline().getCredits();
+        }
+
+        return total;
     }
 
-    public void setGrade1(double Grade1) {
-        this.Grade1 = Grade1;
-    }
+    public int getTotalWorkload() {
+        int total = 0;
 
-    public double getGrade2() {
-        return Grade2;
-    }
+        for (int i = 0; i < entries.size(); i++) {
+            i += entries.get(i).getDiscipline().getTotalWorkload();
+        }
 
-    public void setGrade2(double Grade2) {
-        this.Grade2 = Grade2;
+        return total;
     }
-
-    public double getNp() {
-        return np;
-    }
-
-    public void setNp(double np) {
-        this.np = np;
-    }
-
-    public double getAverage() {
-        return average;
-    }
-
-    public void setAverage(double average) {
-        this.average = average;
-    }
-
-    public String getConcept() {
-        return concept;
-    }
-
-    public void setConcept(String concept) {
-        this.concept = concept;
-    }
-
 }

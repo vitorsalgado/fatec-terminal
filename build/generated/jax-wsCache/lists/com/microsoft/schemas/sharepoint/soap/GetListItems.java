@@ -12,9 +12,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>Classe Java de anonymous complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
  * 
  * <pre>
  * &lt;complexType>
@@ -88,7 +88,7 @@ public class GetListItems {
     protected String webID;
 
     /**
-     * Gets the value of the listName property.
+     * Obtém o valor da propriedade listName.
      * 
      * @return
      *     possible object is
@@ -100,7 +100,7 @@ public class GetListItems {
     }
 
     /**
-     * Sets the value of the listName property.
+     * Define o valor da propriedade listName.
      * 
      * @param value
      *     allowed object is
@@ -112,7 +112,7 @@ public class GetListItems {
     }
 
     /**
-     * Gets the value of the viewName property.
+     * Obtém o valor da propriedade viewName.
      * 
      * @return
      *     possible object is
@@ -124,7 +124,7 @@ public class GetListItems {
     }
 
     /**
-     * Sets the value of the viewName property.
+     * Define o valor da propriedade viewName.
      * 
      * @param value
      *     allowed object is
@@ -136,7 +136,7 @@ public class GetListItems {
     }
 
     /**
-     * Gets the value of the query property.
+     * Obtém o valor da propriedade query.
      * 
      * @return
      *     possible object is
@@ -148,7 +148,7 @@ public class GetListItems {
     }
 
     /**
-     * Sets the value of the query property.
+     * Define o valor da propriedade query.
      * 
      * @param value
      *     allowed object is
@@ -160,7 +160,7 @@ public class GetListItems {
     }
 
     /**
-     * Gets the value of the viewFields property.
+     * Obtém o valor da propriedade viewFields.
      * 
      * @return
      *     possible object is
@@ -172,7 +172,7 @@ public class GetListItems {
     }
 
     /**
-     * Sets the value of the viewFields property.
+     * Define o valor da propriedade viewFields.
      * 
      * @param value
      *     allowed object is
@@ -184,7 +184,7 @@ public class GetListItems {
     }
 
     /**
-     * Gets the value of the rowLimit property.
+     * Obtém o valor da propriedade rowLimit.
      * 
      * @return
      *     possible object is
@@ -196,7 +196,7 @@ public class GetListItems {
     }
 
     /**
-     * Sets the value of the rowLimit property.
+     * Define o valor da propriedade rowLimit.
      * 
      * @param value
      *     allowed object is
@@ -208,7 +208,7 @@ public class GetListItems {
     }
 
     /**
-     * Gets the value of the queryOptions property.
+     * Obtém o valor da propriedade queryOptions.
      * 
      * @return
      *     possible object is
@@ -220,7 +220,7 @@ public class GetListItems {
     }
 
     /**
-     * Sets the value of the queryOptions property.
+     * Define o valor da propriedade queryOptions.
      * 
      * @param value
      *     allowed object is
@@ -232,7 +232,7 @@ public class GetListItems {
     }
 
     /**
-     * Gets the value of the webID property.
+     * Obtém o valor da propriedade webID.
      * 
      * @return
      *     possible object is
@@ -244,7 +244,7 @@ public class GetListItems {
     }
 
     /**
-     * Sets the value of the webID property.
+     * Define o valor da propriedade webID.
      * 
      * @param value
      *     allowed object is
@@ -257,9 +257,9 @@ public class GetListItems {
 
 
     /**
-     * <p>Java class for anonymous complex type.
+     * <p>Classe Java de anonymous complex type.
      * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
+     * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
      * 
      * <pre>
      * &lt;complexType>
@@ -303,8 +303,8 @@ public class GetListItems {
          * 
          * <p>
          * Objects of the following type(s) are allowed in the list
-         * {@link String }
          * {@link Object }
+         * {@link String }
          * 
          * 
          */
@@ -319,9 +319,9 @@ public class GetListItems {
 
 
     /**
-     * <p>Java class for anonymous complex type.
+     * <p>Classe Java de anonymous complex type.
      * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
+     * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
      * 
      * <pre>
      * &lt;complexType>
@@ -365,8 +365,8 @@ public class GetListItems {
          * 
          * <p>
          * Objects of the following type(s) are allowed in the list
-         * {@link String }
          * {@link Object }
+         * {@link String }
          * 
          * 
          */
@@ -381,9 +381,9 @@ public class GetListItems {
 
 
     /**
-     * <p>Java class for anonymous complex type.
+     * <p>Classe Java de anonymous complex type.
      * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
+     * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
      * 
      * <pre>
      * &lt;complexType>
@@ -427,8 +427,8 @@ public class GetListItems {
          * 
          * <p>
          * Objects of the following type(s) are allowed in the list
-         * {@link String }
          * {@link Object }
+         * {@link String }
          * 
          * 
          */

@@ -12,9 +12,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>Classe Java de anonymous complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
  * 
  * <pre>
  * &lt;complexType>
@@ -53,7 +53,7 @@ public class UpdateContentTypesXmlDocument {
     protected UpdateContentTypesXmlDocument.NewDocument newDocument;
 
     /**
-     * Gets the value of the listName property.
+     * Obtém o valor da propriedade listName.
      * 
      * @return
      *     possible object is
@@ -65,7 +65,7 @@ public class UpdateContentTypesXmlDocument {
     }
 
     /**
-     * Sets the value of the listName property.
+     * Define o valor da propriedade listName.
      * 
      * @param value
      *     allowed object is
@@ -77,7 +77,7 @@ public class UpdateContentTypesXmlDocument {
     }
 
     /**
-     * Gets the value of the newDocument property.
+     * Obtém o valor da propriedade newDocument.
      * 
      * @return
      *     possible object is
@@ -89,7 +89,7 @@ public class UpdateContentTypesXmlDocument {
     }
 
     /**
-     * Sets the value of the newDocument property.
+     * Define o valor da propriedade newDocument.
      * 
      * @param value
      *     allowed object is
@@ -102,9 +102,9 @@ public class UpdateContentTypesXmlDocument {
 
 
     /**
-     * <p>Java class for anonymous complex type.
+     * <p>Classe Java de anonymous complex type.
      * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
+     * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
      * 
      * <pre>
      * &lt;complexType>
@@ -148,8 +148,8 @@ public class UpdateContentTypesXmlDocument {
          * 
          * <p>
          * Objects of the following type(s) are allowed in the list
-         * {@link String }
          * {@link Object }
+         * {@link String }
          * 
          * 
          */

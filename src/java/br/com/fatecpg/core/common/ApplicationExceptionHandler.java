@@ -23,6 +23,7 @@ import br.com.fatecpg.web.viewmodels.ErrorModel;
 import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.tomcat.dbcp.pool.PoolUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -56,6 +57,7 @@ public class ApplicationExceptionHandler implements HandlerExceptionResolver {
 
         String message = excptn.getMessage();
         String username = null;
+        StringBuilder errorDetailBuilder = new StringBuilder();
 
         if (message == null || message.isEmpty()) {
             message = "Erro de aplicação.";
@@ -65,9 +67,24 @@ public class ApplicationExceptionHandler implements HandlerExceptionResolver {
             username = hsr.getUserPrincipal().getName();
         }
 
+        errorDetailBuilder.append(excptn.toString());
+
+        if (excptn.getStackTrace() != null && excptn.getStackTrace().length > 0) {
+            
+            errorDetailBuilder.append("</br></br>");
+            
+            for (StackTraceElement stack : excptn.getStackTrace()) {
+                errorDetailBuilder
+                        .append(stack.getClassName()).append("</br>")
+                        .append(stack.getFileName()).append("</br>")
+                        .append(stack.getLineNumber()).append("</br>")
+                        .append(stack.getMethodName()).append("</br></br>");
+            }
+        }
+
         log.setApplicationName(this.applicationName);
         log.setCreatedDate(new Date());
-        log.setDetails(excptn.toString());
+        log.setDetails(errorDetailBuilder.toString());
         log.setIpAddress(hsr.getLocalAddr());
         log.setMessage(message);
         log.setUrl(hsr.getRequestURI());
@@ -77,11 +94,12 @@ public class ApplicationExceptionHandler implements HandlerExceptionResolver {
             logRepository.add(log);
         } catch (Exception ex) {
         }
-        
+
         ErrorModel model = new ErrorModel();
         model.setErrorDate(log.getCreatedDate());
         model.setLogId(log.getId());
         model.setMessage(log.getMessage());
+        model.setDetail(log.getDetails());
 
         return new ModelAndView("error", "model", model);
     }

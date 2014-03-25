@@ -7,7 +7,7 @@
         </div>
         
         <span class="key-info">
-            <img src="resources/images/esc.png" alt="ESC" /> <b>ESC</b> para <b>SAIR</b>
+            <img src="resources/images/esc.png" alt="ESC" /> <b>ESC</b> para <b><span id="esc-description-text">SAIR</span></b>
         </span>
         <spa class="key-info">
             <img src="resources/images/plus.png" alt="Up" /><b>+</b> para <b>SUBIR A BARRA</b>

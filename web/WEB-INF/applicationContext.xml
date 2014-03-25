@@ -26,8 +26,8 @@
     
     <util:properties id="appProperties" location="classpath:app.properties" />
     
-    <bean id="exceptionHandler" class="br.com.fatecpg.core.common.ApplicationExceptionHandler" />
-    
+<!--    <bean id="exceptionHandler" class="br.com.fatecpg.core.common.ApplicationExceptionHandler" />
+    -->
     <!--bean id="propertyConfigurer"
     class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
     p:location="/WEB-INF/jdbc.properties" />-->      

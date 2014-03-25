@@ -1,5 +1,5 @@
-/* 
- * Copyright (C) 2014 Vitor Hugo Salgado <vsalgadopb@gmail.com>
+/*
+ * Copyright (C) 2014 vitor.salgado
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,24 +14,23 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package br.com.fatecpg.core.repositories;
+package br.com.fatecpg.web.viewmodels;
 
-import br.com.fatecpg.core.entities.EnrolledDiscipline;
 import br.com.fatecpg.core.entities.History;
-import br.com.fatecpg.core.entities.Student;
-
-import java.util.List;
 
 /**
  *
  * @author vitor.salgado
  */
-public interface StudentRepository {
+public class HistoryModel extends AbstractResponse {
 
-    Student getStudent(String enrollment);
+    private History history;
 
-    List<EnrolledDiscipline> getEnrolledDisciplines(String enrollment);
+    public History getHistory() {
+        return history;
+    }
 
-    History getHistory(String enrollment);
-
+    public void setHistory(History history) {
+        this.history = history;
+    }
 }

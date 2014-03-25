@@ -29,7 +29,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 }
 
 #content{
-    margin-top: 10px;
+    margin: 10px 0 60px;
 }
 
 #index-content{
@@ -324,4 +324,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     width:500px;
     background: blue;
     height: 40px;
+}
+
+#error-container{
+    width: 90%;
+    margin: 120px auto 0;
+    text-align: center;
+}
+
+#error-container div p{
+    color: #D64203 !important;
+    font-size: 32px;
 }

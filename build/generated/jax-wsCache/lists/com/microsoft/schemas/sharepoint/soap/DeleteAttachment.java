@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>Classe Java de anonymous complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
  * 
  * <pre>
  * &lt;complexType>
@@ -42,7 +42,7 @@ public class DeleteAttachment {
     protected String url;
 
     /**
-     * Gets the value of the listName property.
+     * Obtém o valor da propriedade listName.
      * 
      * @return
      *     possible object is
@@ -54,7 +54,7 @@ public class DeleteAttachment {
     }
 
     /**
-     * Sets the value of the listName property.
+     * Define o valor da propriedade listName.
      * 
      * @param value
      *     allowed object is
@@ -66,7 +66,7 @@ public class DeleteAttachment {
     }
 
     /**
-     * Gets the value of the listItemID property.
+     * Obtém o valor da propriedade listItemID.
      * 
      * @return
      *     possible object is
@@ -78,7 +78,7 @@ public class DeleteAttachment {
     }
 
     /**
-     * Sets the value of the listItemID property.
+     * Define o valor da propriedade listItemID.
      * 
      * @param value
      *     allowed object is
@@ -90,7 +90,7 @@ public class DeleteAttachment {
     }
 
     /**
-     * Gets the value of the url property.
+     * Obtém o valor da propriedade url.
      * 
      * @return
      *     possible object is
@@ -102,7 +102,7 @@ public class DeleteAttachment {
     }
 
     /**
-     * Sets the value of the url property.
+     * Define o valor da propriedade url.
      * 
      * @param value
      *     allowed object is

@@ -13,9 +13,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>Classe Java de anonymous complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
  * 
  * <pre>
  * &lt;complexType>
@@ -52,7 +52,7 @@ public class ApplyContentTypeToListResponse {
     protected ApplyContentTypeToListResponse.ApplyContentTypeToListResult applyContentTypeToListResult;
 
     /**
-     * Gets the value of the applyContentTypeToListResult property.
+     * Obtém o valor da propriedade applyContentTypeToListResult.
      * 
      * @return
      *     possible object is
@@ -64,7 +64,7 @@ public class ApplyContentTypeToListResponse {
     }
 
     /**
-     * Sets the value of the applyContentTypeToListResult property.
+     * Define o valor da propriedade applyContentTypeToListResult.
      * 
      * @param value
      *     allowed object is
@@ -77,9 +77,9 @@ public class ApplyContentTypeToListResponse {
 
 
     /**
-     * <p>Java class for anonymous complex type.
+     * <p>Classe Java de anonymous complex type.
      * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
+     * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
      * 
      * <pre>
      * &lt;complexType>
@@ -123,8 +123,8 @@ public class ApplyContentTypeToListResponse {
          * 
          * <p>
          * Objects of the following type(s) are allowed in the list
-         * {@link String }
          * {@link Object }
+         * {@link String }
          * 
          * 
          */

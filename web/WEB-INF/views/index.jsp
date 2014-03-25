@@ -22,7 +22,6 @@
                 <img src="resources/images/loading.gif" alt="carregando..." />
             </div>
             <div id="content" class="wrap">
-                <h1 id="page-title"></h1>
                 <div id="page-content"></div>
             </div>
             <div id="index-content" class="wrap">
