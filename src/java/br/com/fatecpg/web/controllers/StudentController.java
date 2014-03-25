@@ -69,7 +69,7 @@ public class StudentController {
         Student student = (Student)session.getAttribute("student");
         String enrollment = student.getEnroll();
                 
-        List<EnrolledDiscipline> enrolledDisciplines = studentRepository.getEnrolledDisciplines("1290371313006");
+        List<EnrolledDiscipline> enrolledDisciplines = studentRepository.getEnrolledDisciplines("F0713376");
         EnrolledDisciplinesModel model = new EnrolledDisciplinesModel();
         
         if(enrolledDisciplines == null || enrolledDisciplines.size() <= 0){
