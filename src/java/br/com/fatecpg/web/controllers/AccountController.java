@@ -22,12 +22,14 @@ import br.com.fatecpg.web.viewmodels.LoginResultModel;
 
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 /**
  *
@@ -59,11 +61,11 @@ public class AccountController {
             enrollment = "f" + enrollment;
         
         LoginResultModel response = new LoginResultModel();
-        Student student = studentRepository.getStudent(enrollment);
+        Student student = studentRepository.get(enrollment);
 
         if (student == null) {
             response.setSuccess(false);
-            response.setMessage(String.format("Nenhum aluno encontrado para o número de matrícula %s", enrollment));
+            response.setMessage(String.format("Nenhum aluno encontrado para o número de matrícula \"%s\" :-(", enrollment));
         } else {
             response.setSuccess(true);
             response.setStudent(student);
@@ -75,10 +77,10 @@ public class AccountController {
     }
 
     @RequestMapping(value = "/logout", method = RequestMethod.POST)
-    public String logout() {
+    @ResponseStatus(value = HttpStatus.OK)
+    public void logout() {
 
         session.removeAttribute("student");
-        return "index";
     }
 
 }

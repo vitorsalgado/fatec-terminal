@@ -20,7 +20,6 @@ import br.com.fatecpg.core.entities.Log;
 import br.com.fatecpg.core.entities.Student;
 import br.com.fatecpg.core.repositories.LogRepository;
 import br.com.fatecpg.web.viewmodels.ErrorModel;
-
 import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -66,7 +65,7 @@ public class ApplicationExceptionHandler implements HandlerExceptionResolver {
             Object obj = hsr.getSession().getAttribute("student");
             if (obj != null) {
                 Student student = (Student) obj;
-                username = student.getEnroll();
+                username = student.getEnrollment();
             }
         }
 
@@ -84,10 +83,16 @@ public class ApplicationExceptionHandler implements HandlerExceptionResolver {
         }
 
         ErrorModel model = new ErrorModel();
-        model.setErrorDate(log.getCreatedDate());
         model.setLogId(log.getId());
         model.setMessage(log.getMessage());
 
-        return new ModelAndView("/shared/error", "model", model);
+        if (WebHelper.isAjaxRequest(hsr)) {
+            hsr1.setStatus(500);
+            hsr1.setContentType("text/html");
+            return new ModelAndView("/shared/_error", "model", model);
+        } else {
+            return new ModelAndView("/shared/error", "model", model);
+        }
+
     }
 }

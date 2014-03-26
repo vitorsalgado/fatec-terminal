@@ -16,8 +16,6 @@
  */
 package br.com.fatecpg.web.viewmodels;
 
-import java.util.Date;
-
 /**
  *
  * @author Vitor Hugo Salgado <vsalgadopb@gmail.com>
@@ -26,7 +24,6 @@ public class ErrorModel {
 
     private String message;
     private int logId;
-    private Date errorDate;
 
     public String getMessage() {
         return message;
@@ -42,13 +39,5 @@ public class ErrorModel {
 
     public void setLogId(int logId) {
         this.logId = logId;
-    }
-
-    public Date getErrorDate() {
-        return errorDate;
-    }
-
-    public void setErrorDate(Date errorDate) {
-        this.errorDate = errorDate;
     }
 }

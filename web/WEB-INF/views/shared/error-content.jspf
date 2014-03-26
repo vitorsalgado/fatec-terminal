@@ -1,0 +1,7 @@
+<%@ page pageEncoding="UTF-8" %>
+<div>
+    <p>Ops, desculpe mas ocorreu um erro no sistema... :-(</p>
+    <p><b>Erro: </b>"${model.message}"</p>
+    <p><b>Log: </b>${model.logId}</p>
+    <p>Tecle <b>ESC</b> ou <b>0</b> para voltar...</p>
+</div>

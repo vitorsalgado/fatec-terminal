@@ -14,11 +14,10 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package br.com.fatecpg.repositories.sharepoint;
+package br.com.fatecpg.repositories.sharepoint.support;
 
 import com.microsoft.schemas.sharepoint.soap.Lists;
 import com.microsoft.schemas.sharepoint.soap.ListsSoap;
-
 import javax.xml.ws.BindingProvider;
 
 /**

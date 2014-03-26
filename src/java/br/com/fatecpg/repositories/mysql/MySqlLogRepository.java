@@ -19,7 +19,6 @@ package br.com.fatecpg.repositories.mysql;
 import br.com.fatecpg.core.entities.Log;
 import br.com.fatecpg.core.repositories.DbProvider;
 import br.com.fatecpg.core.repositories.LogRepository;
-
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -34,63 +33,63 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public class MySqlLogRepository implements LogRepository {
-    
+
     private DbProvider dbProvider;
-    
+
     @Autowired
     public void setDbProvider(DbProvider dbProvider) {
         this.dbProvider = dbProvider;
     }
-    
+
     @Override
     public void add(Log log) {
         if (log == null) {
             throw new IllegalArgumentException("log can't be null.");
         }
-        
+
         String sql = "insert into log (applicationName, message, url, ipaddress, username, createdon, details) values (?, ?, ?, ?, ?, ?, ?)";
         Connection connection = dbProvider.getConnection();
-        
+
         try {
-            
+
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, log.getApplicationName());
             preparedStatement.setString(2, log.getMessage());
             preparedStatement.setString(3, log.getUrl());
             preparedStatement.setString(4, log.getIpAddress());
             preparedStatement.setString(5, log.getUsername());
-            
+
             Date sqlDate
                     = new Date(log.getCreatedDate().getYear(), log.getCreatedDate().getMonth(), log.getCreatedDate().getDay());
-            
+
             preparedStatement.setDate(6, sqlDate);
             preparedStatement.setString(7, log.getDetails());
-            
+
             preparedStatement.execute();
-            
+
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
         }
     }
-    
+
     @Override
     public Log getById(int id) {
         if (id <= 0) {
             throw new IllegalArgumentException("id must be greather than 0.");
         }
-        
+
         Log log = null;
-        
+
         String sql = "select id, applicationName, message, url, ipaddress, usernamme, createdon, details from log where id = ?";
         Connection connection = dbProvider.getConnection();
-        
+
         try {
-            
+
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, id);
-            
+
             ResultSet resultSet = preparedStatement.executeQuery();
-            
+
             if (resultSet.next()) {
                 log = new Log();
                 log.setId(resultSet.getInt("id"));
@@ -102,12 +101,12 @@ public class MySqlLogRepository implements LogRepository {
                 log.setCreatedDate(resultSet.getDate("createdOn"));
                 log.setDetails(resultSet.getString("details"));
             }
-            
+
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
         }
-        
+
         return log;
     }
-    
+
 }

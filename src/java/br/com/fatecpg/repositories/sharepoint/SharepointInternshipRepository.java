@@ -16,6 +16,7 @@
  */
 package br.com.fatecpg.repositories.sharepoint;
 
+import br.com.fatecpg.repositories.sharepoint.support.SharepointFieldsReader;
 import br.com.fatecpg.core.entities.Internship;
 import br.com.fatecpg.core.repositories.InternshipRepository;
 import br.com.fatecpg.core.repositories.SpContext;
@@ -37,7 +38,7 @@ import org.w3c.dom.NodeList;
 @Repository
 public class SharepointInternshipRepository implements InternshipRepository {
 
-    private String listsPath = "http://www.fatecpg.com.br/estagio/_vti_bin/lists.asmx";
+    private String listsPath;
     private SpContext spContext;
 
     @Autowired

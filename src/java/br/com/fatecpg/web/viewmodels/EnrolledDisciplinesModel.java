@@ -17,6 +17,7 @@
 package br.com.fatecpg.web.viewmodels;
 
 import br.com.fatecpg.core.entities.EnrolledDiscipline;
+
 import java.util.List;
 
 /**

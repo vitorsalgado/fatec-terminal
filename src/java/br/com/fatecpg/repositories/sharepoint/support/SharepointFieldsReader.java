@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package br.com.fatecpg.repositories.sharepoint;
+package br.com.fatecpg.repositories.sharepoint.support;
 
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;

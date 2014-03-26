@@ -32,9 +32,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -59,22 +57,13 @@ public class StudentController {
         this.session = session;
     }
 
-    @RequestMapping(value = "/student", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseBody()
-    public Student student() {
-
-        Student student = studentRepository.getStudent("F0713376");
-
-        return student;
-    }
-
     @RequestMapping(value = "/enrollments", method = RequestMethod.POST)
     public ModelAndView enrollments() {
 
         Student student = (Student) session.getAttribute("student");
-        String enrollment = student.getEnroll();
+        String enrollment = student.getEnrollment();
 
-        List<EnrolledDiscipline> enrolledDisciplines = studentRepository.getEnrolledDisciplines("F0713376");
+        List<EnrolledDiscipline> enrolledDisciplines = studentRepository.getEnrolledDisciplines(enrollment);
         EnrolledDisciplinesModel model = new EnrolledDisciplinesModel();
 
         if (enrolledDisciplines == null || enrolledDisciplines.size() <= 0) {
@@ -90,14 +79,18 @@ public class StudentController {
         return new ModelAndView("/student/enrollments", "model", model);
     }
 
-    @RequestMapping(value = "/history")
-    public ModelAndView history() {
-        History history = studentRepository.getHistory("F0713376");
+    @RequestMapping(value = "/history", method = RequestMethod.POST)
+    public ModelAndView history() { 
+        
+        Student student = (Student) session.getAttribute("student");
+        String enrollment = student.getEnrollment();
+        
+        History history = studentRepository.getHistory(enrollment);
         HistoryModel model = new HistoryModel();
 
         if (history == null || history.getEntries() == null || history.getEntries().isEmpty()) {
             model.setSuccess(false);
-            model.setMessage("Histórico não encontrado :-(");
+            model.setMessage("Não encontramos registros de histórico para a sua matrícula :-(");
             return new ModelAndView("/student/history", "model", model);
         }
 

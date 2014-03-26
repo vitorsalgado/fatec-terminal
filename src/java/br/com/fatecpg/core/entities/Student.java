@@ -23,7 +23,7 @@ package br.com.fatecpg.core.entities;
 public class Student {
 
     private int id;
-    private String enroll;
+    private String enrollment;
     private String name;
     private String course;
     private String email;
@@ -36,12 +36,12 @@ public class Student {
         this.id = Id;
     }
 
-    public String getEnroll() {
-        return enroll;
+    public String getEnrollment() {
+        return enrollment;
     }
 
-    public void setEnroll(String enroll) {
-        this.enroll = enroll;
+    public void setEnrollment(String enrollment) {
+        this.enrollment = enrollment;
     }
 
     public String getName() {

@@ -27,6 +27,8 @@
             <div id="index-content" class="wrap">
                 <%@include file="shared/menu.jspf" %>
             </div>
+            <div id="error-container" class="invisible">
+            </div>
         </div>
 
         <%@include file="shared/login.jspf" %>

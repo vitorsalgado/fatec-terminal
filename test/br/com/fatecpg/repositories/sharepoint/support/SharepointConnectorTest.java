@@ -15,9 +15,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package br.com.fatecpg.sharepoint;
+package br.com.fatecpg.repositories.sharepoint.support;
 
-import br.com.fatecpg.repositories.sharepoint.SharepointConnector;
 import com.microsoft.schemas.sharepoint.soap.ListsSoap;
 import org.junit.After;
 import org.junit.AfterClass;

@@ -17,13 +17,7 @@
     <body id="body">
         <%@include file="header.jspf" %>
         <div id="error-container">
-            <div>
-                <p>Ops, desculpe mas ocorreu um erro no sistema... :-(</p>
-                <p>${model.message}</p>
-                <p>${model.logId}</p>
-                <p>${model.errorDate}</p>
-                <p>Tecle <b>ESC</b> ou <b>0</b> para voltar...</p>
-            </div>
+            <%@include file="error-content.jspf" %>
         </div>
         <%@include file="footer.jspf" %>
     </body>

@@ -16,6 +16,7 @@
  */
 package br.com.fatecpg.repositories.sharepoint;
 
+import br.com.fatecpg.repositories.sharepoint.support.SharepointFieldsReader;
 import br.com.fatecpg.core.entities.Discipline;
 import br.com.fatecpg.core.repositories.SpContext;
 import br.com.fatecpg.core.entities.EnrolledDiscipline;
@@ -45,7 +46,7 @@ public class SharepointStudentRepository implements StudentRepository {
     
     private static final String[] defaultViewFieldsList = {"Nome_x0020_Completo", "Curso", "Turno", "Registro_x0020_Geral", "Org_x00e3_o_x0020_Emissor_x0020_", "Data_x0020_de_x0020_Emiss_x00e3_", "Data_x0020_de_x0020_Nascimento", "Naturalidade", "Endere_x00e7_o", "Bairro", "Munic_x00ed_pio_x0020_da_x0020_R", "Estado_x0020_de_x0020_Resid_x00e", "Telefone_x0020__x0028_res_x0029_", "Celular", "Email", "Turma_x0020_de_x0020_Ingresso", "Data_x0020_da_x0020_Matr_x00ed_c", "Observa_x00e7__x00f5_es_x0020_pa"};
     
-    private String listsPath = "http://www.fatecpg.com.br/fatec/_vti_bin/lists.asmx";
+    private String listsPath;
     private SpContext spContext;
     
     @Autowired
@@ -59,7 +60,7 @@ public class SharepointStudentRepository implements StudentRepository {
     }
     
     @Override
-    public Student getStudent(String enrollment) {
+    public Student get(String enrollment) {
         
         if (enrollment == null || enrollment.isEmpty()) {
             throw new IllegalArgumentException("enrollment can't be null or empty.");
@@ -81,7 +82,7 @@ public class SharepointStudentRepository implements StudentRepository {
         
         student.setId(SharepointFieldsReader.readIntegerField(attributes, "ows_ID"));
         student.setName(SharepointFieldsReader.readStringField(attributes, "ows_Nome_x0020_Completo"));
-        student.setEnroll(SharepointFieldsReader.readStringField(attributes, "ows_Title"));
+        student.setEnrollment(SharepointFieldsReader.readStringField(attributes, "ows_Title"));
         student.setCourse(SharepointFieldsReader.readStringField(attributes, "ows_Curso"));
         
         return student;

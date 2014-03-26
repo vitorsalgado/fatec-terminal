@@ -1,5 +1,5 @@
-/* 
- * Copyright (C) 2014 Vitor Hugo Salgado <vsalgadopb@gmail.com>
+/*
+ * Copyright (C) 2014 vitor.salgado
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,31 +14,19 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package br.com.fatecpg.web.viewmodels;
+
+package br.com.fatecpg.core.common;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
- * base class to application view models.
+ *
  * @author vitor.salgado
  */
-public abstract class AbstractModel {
-
-    private boolean success;
-    private String message;
-
-    public boolean isSuccess() {
-        return success;
+public final class WebHelper {
+    
+    public static boolean isAjaxRequest(HttpServletRequest request){
+        return "XMLHttpRequest".equalsIgnoreCase(request.getHeader("X-Requested-With"));
     }
-
-    public void setSuccess(boolean success) {
-        this.success = success;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
+    
 }

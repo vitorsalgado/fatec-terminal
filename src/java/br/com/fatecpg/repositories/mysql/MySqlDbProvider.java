@@ -58,11 +58,11 @@ public class MySqlDbProvider implements DbProvider {
 
     private Connection refreshConnection() {
         try {
-            
+
             if (mssqlConnection == null || mssqlConnection.isValid(100)) {
                 mssqlConnection = createConnection();
             }
-            
+
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
         }

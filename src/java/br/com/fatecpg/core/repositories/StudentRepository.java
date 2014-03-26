@@ -19,7 +19,6 @@ package br.com.fatecpg.core.repositories;
 import br.com.fatecpg.core.entities.EnrolledDiscipline;
 import br.com.fatecpg.core.entities.History;
 import br.com.fatecpg.core.entities.Student;
-
 import java.util.List;
 
 /**
@@ -28,7 +27,7 @@ import java.util.List;
  */
 public interface StudentRepository {
 
-    Student getStudent(String enrollment);
+    Student get(String enrollment);
 
     List<EnrolledDiscipline> getEnrolledDisciplines(String enrollment);
 

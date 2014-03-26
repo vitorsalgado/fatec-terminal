@@ -21,6 +21,11 @@
 
 var enterKey = 13;
 var escapeKey = 27;
+var backspaceKey = 8;
+var pageUpKey = 33;
+var pageDownKey = 34;
+var upKey = 38;
+var downKey = 40;
 
 var numpad0Key = 96;
 var numpad1Key = 97;
@@ -35,22 +40,29 @@ var subtractKey = 189;
 var equalKey = 187;
 
 var currentSelectedOption = 0;
-var enroll = '';
+var enrollment = '';
 
-var sessionTimer;
+var sessionTimeOut = 480000;
 var blockAction = false;
+
+var defaultWelcomeText = 'Bem vindo(a) :-)';
 
 $(document).ready(function() {
 
-    $('#student-info').html('Bem-vindo(a)');
+    $('#student-info').html(defaultWelcomeText);
     $('#esc-description-text').html('SAIR');
     $('#txtEnrollment').val('');
     setTimeout($('#txtEnrollment').focus(), 100);
 
-    $(this).ajaxError(function(event, jqxhr, settings, exception) {
-        $('#login-errors').html(exception);
+    $(this).ajaxError(function(event, jqxhr) {
+        $('#login-overlay').hide();
+        $('#index-content').hide();
+        $('#error-container').html(jqxhr.responseText);
+        $('#loading-container').hide();
+        $('#error-container').fadeIn();
     });
 
+    //LOGIN
     $('#txtEnrollment').keypress(function(e) {
         if (e.which == enterKey) {
             if ($(this).val() == null || $(this).val() == '') {
@@ -79,17 +91,17 @@ $(document).ready(function() {
                 },
                 success: function(response) {
                     if (response.success) {
-                        enroll = response.student.enroll;
+                        enrollment = response.student.enroll;
 
                         $('#login-errors').hide();
                         $('#login-overlay').fadeOut();
                         $('#student-info').html('Bem-vindo(a), ' + response.student.name);
 
-//                        setTimeout(function(){
-//                            if(enroll != null && enroll != ''){
-//                                logout();
-//                            }
-//                        }, 600000);
+                        setTimeout(function() {
+                            if (enrollment != null && enrollment != '' && !blockAction && !isTxtEnrollmentFocused()) {
+                                logout();
+                            }
+                        }, sessionTimeOut);
 
                     } else {
                         $('#login-errors').html(response.message).fadeIn();
@@ -110,9 +122,12 @@ $(document).ready(function() {
         var key = parseInt(e.which);
 
         switch (key) {
+            
+            //VOLTAR / SAIR
             case escapeKey:
             case zeroKey:
             case numpad0Key:
+
                 if (isTxtEnrollmentFocused() || blockAction)
                     return;
 
@@ -127,16 +142,18 @@ $(document).ready(function() {
 
                 break;
 
+            //MATRÍCULAS NO SEMESTRE
             case numpad1Key:
             case oneKey:
-                if (isTxtEnrollmentFocused() || currentSelectedOption == 1 || blockAction)
+
+                if (isTxtEnrollmentFocused() || currentSelectedOption != 0 || blockAction)
                     return;
 
                 currentSelectedOption = 1;
 
                 $.ajax({
                     type: 'POST',
-                    data: 'json',
+                    dataType: 'html',
                     url: './student/enrollments',
                     beforeSend: function() {
                         $('#index-content').hide();
@@ -156,9 +173,11 @@ $(document).ready(function() {
 
                 break;
 
+            //HISTÓRICO COMPLETO
             case numpad2Key:
             case twoKey:
-                if (isTxtEnrollmentFocused() || currentSelectedOption == 2 || blockAction)
+
+                if (isTxtEnrollmentFocused() || currentSelectedOption != 0 || blockAction)
                     return;
 
                 currentSelectedOption = 2;
@@ -166,8 +185,6 @@ $(document).ready(function() {
                 $.ajax({
                     type: 'POST',
                     dataType: 'html',
-                    cache: false,
-                    timeout: 120000,
                     url: './student/history',
                     beforeSend: function() {
                         $('#index-content').hide();
@@ -187,9 +204,13 @@ $(document).ready(function() {
 
                 break;
 
+            //SCROLL UP
             case numpadAddKey:
             case equalKey:
             case enterKey:
+            case downKey:
+            case pageDownKey:
+
                 if (isTxtEnrollmentFocused() || currentSelectedOption == 0)
                     return;
 
@@ -198,8 +219,13 @@ $(document).ready(function() {
 
                 break;
 
+            //SCROLL DOWN
             case numpadSubtractKey:
             case subtractKey:
+            case backspaceKey:
+            case upKey:
+            case pageUpKey:
+
                 if (isTxtEnrollmentFocused() || currentSelectedOption == 0)
                     return;
 
@@ -212,15 +238,18 @@ $(document).ready(function() {
 
 function logout() {
     $.post('./account/logout', null, function() {
-        enroll = '';
+        enrollment = '';
         currentSelectedOption = 0;
 
         $('#content').hide();
+        $('#error-container').hide();
+        
         $('#index-content').fadeIn();
         $('#txtEnrollment').val('');
         $('#login-overlay').fadeIn();
+        
         $('#esc-description-text').html('SAIR');
-        $('#student-info').html('Bem-vindo(a)');
+        $('#student-info').html(defaultWelcomeText);
 
         setTimeout($('#txtEnrollment').focus(), 100);
     });
