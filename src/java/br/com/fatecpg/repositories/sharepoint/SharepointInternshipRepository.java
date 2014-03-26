@@ -19,12 +19,13 @@ package br.com.fatecpg.repositories.sharepoint;
 import br.com.fatecpg.core.entities.Internship;
 import br.com.fatecpg.core.repositories.InternshipRepository;
 import br.com.fatecpg.core.repositories.SpContext;
-
 import com.microsoft.schemas.sharepoint.soap.GetListItems.Query;
 import com.microsoft.schemas.sharepoint.soap.GetListItems.ViewFields;
+
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.NodeList;
@@ -36,12 +37,17 @@ import org.w3c.dom.NodeList;
 @Repository
 public class SharepointInternshipRepository implements InternshipRepository {
 
-    private static final String listPath = "http://www.fatecpg.com.br/estagio/_vti_bin/lists.asmx";
+    private String listsPath = "http://www.fatecpg.com.br/estagio/_vti_bin/lists.asmx";
     private SpContext spContext;
 
     @Autowired
     public void setSpContext(SpContext spContext) {
         this.spContext = spContext;
+    }
+
+    @Value("#{appProperties['rootSiteListsServicePath']}")
+    public void setListsPath(String path) {
+        this.listsPath = path;
     }
 
     @Override
@@ -53,7 +59,7 @@ public class SharepointInternshipRepository implements InternshipRepository {
                 + "</Where><OrderBy><FieldRef Name='Created' Ascending='False'/></OrderBy><Query>";
         Query query = spContext.createQueryNode(strQuery);
 
-        NodeList list = spContext.executeQuery(listPath, listName, query, viewFields);
+        NodeList list = spContext.executeQuery(listsPath, listName, query, viewFields);
         List<Internship> internships = new ArrayList<>();
 
         if (list.getLength() <= 0) {
@@ -66,7 +72,7 @@ public class SharepointInternshipRepository implements InternshipRepository {
 
             String createdBy = SharepointFieldsReader.readStringField(attributes, "ows_Author");
             String[] createdByArray = createdBy.split(";#");
-            
+
             internship.setCreatedBy(createdByArray[1]);
             //internship.setCreatedOn();
             internship.setDetails(SharepointFieldsReader.readStringField(attributes, "ows_Body"));

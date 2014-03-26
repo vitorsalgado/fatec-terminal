@@ -23,9 +23,9 @@ import br.com.fatecpg.core.entities.Student;
 import br.com.fatecpg.core.repositories.StudentRepository;
 import br.com.fatecpg.web.viewmodels.EnrolledDisciplinesModel;
 import br.com.fatecpg.web.viewmodels.HistoryModel;
+
 import java.util.Collections;
 import java.util.Comparator;
-
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
@@ -90,17 +90,17 @@ public class StudentController {
         return new ModelAndView("/student/enrollments", "model", model);
     }
 
-    @RequestMapping(value = "/history", method = RequestMethod.POST)
+    @RequestMapping(value = "/history")
     public ModelAndView history() {
         History history = studentRepository.getHistory("F0713376");
         HistoryModel model = new HistoryModel();
-        
+
         if (history == null || history.getEntries() == null || history.getEntries().isEmpty()) {
             model.setSuccess(false);
             model.setMessage("Histórico não encontrado :-(");
             return new ModelAndView("/student/history", "model", model);
         }
-        
+
         Collections.sort(history.getEntries(), new Comparator<HistoryEntry>() {
 
             @Override
@@ -108,8 +108,8 @@ public class StudentController {
                 return o1.getDiscipline().getCiclo() - o2.getDiscipline().getCiclo();
             }
 
-        }); 
-        
+        });
+
         model.setHistory(history);
         model.setSuccess(true);
 

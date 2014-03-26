@@ -25,9 +25,9 @@ public class Discipline {
     private int id;
     private String name;
     private int ciclo;
-    private int workload;
-    private int totalWorkload;
-    private int credits;
+    private double workload;
+    private double totalWorkload;
+    private double credits;
 
     public int getId() {
         return id;
@@ -53,27 +53,27 @@ public class Discipline {
         this.ciclo = ciclo;
     }
 
-    public int getWorkload() {
+    public double getWorkload() {
         return workload;
     }
 
-    public void setWorkload(int workload) {
+    public void setWorkload(double workload) {
         this.workload = workload;
     }
 
-    public int getTotalWorkload() {
+    public double getTotalWorkload() {
         return totalWorkload;
     }
 
-    public void setTotalWorkload(int totalWorkload) {
+    public void setTotalWorkload(double totalWorkload) {
         this.totalWorkload = totalWorkload;
     }
 
-    public int getCredits() {
+    public double getCredits() {
         return credits;
     }
 
-    public void setCredits(int credits) {
+    public void setCredits(double credits) {
         this.credits = credits;
     }
 

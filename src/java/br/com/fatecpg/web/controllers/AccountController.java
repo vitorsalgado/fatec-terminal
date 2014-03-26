@@ -18,7 +18,7 @@ package br.com.fatecpg.web.controllers;
 
 import br.com.fatecpg.core.entities.Student;
 import br.com.fatecpg.core.repositories.StudentRepository;
-import br.com.fatecpg.web.viewmodels.LoginResponse;
+import br.com.fatecpg.web.viewmodels.LoginResultModel;
 
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,12 +53,12 @@ public class AccountController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public LoginResponse login(String enrollment) {
+    public LoginResultModel login(String enrollment) {
 
         if(!enrollment.toLowerCase().contains("f"))
             enrollment = "f" + enrollment;
         
-        LoginResponse response = new LoginResponse();
+        LoginResultModel response = new LoginResultModel();
         Student student = studentRepository.getStudent(enrollment);
 
         if (student == null) {

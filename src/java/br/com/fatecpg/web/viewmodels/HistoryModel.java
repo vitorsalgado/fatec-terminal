@@ -22,7 +22,7 @@ import br.com.fatecpg.core.entities.History;
  *
  * @author vitor.salgado
  */
-public class HistoryModel extends AbstractResponse {
+public class HistoryModel extends AbstractModel {
 
     private History history;
 

@@ -24,12 +24,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 }
 
 .wrap{
-    width: 90%;
+    width: 93%;
     margin: 0 auto;
 }
 
 #content{
-    margin: 10px 0 60px;
+    margin-top: 10px;
 }
 
 #index-content{
@@ -113,7 +113,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 }
 
 .page-title{
-    left: 40px;
+    left: 32px;
     top: 10px;
     position: absolute;
     width: auto;
@@ -167,6 +167,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     font-family: ProximaNova-SemiBold, helvetica, arial, sans-serif;
     font-weight: normal;
     border-top: none;
+    text-align: center;
 }
 
 .grid tbody tr:nth-child(even) {
@@ -177,7 +178,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 .grid td {
     border-top: 1px solid #E0E0E0;
     padding: 10px;
-    text-align: left;
+    text-align: center;
     vertical-align: middle;
     color: #666;
 }
@@ -205,6 +206,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 .grid-detail {
     float: right;
 }
+
+.large-grid-detail{
+    min-height: 200px;
+}
+
+.grid-detail li {
+    margin-left: 8px;
+    float: right;
+}
+
 .grid-detail a{
     position: relative;
     color: #fff;
@@ -231,6 +242,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     position: absolute;
     width: 0;
     border: 10px solid transparent;
+}
+
+.grid-detail-label{
+    padding: 0 0 10px;
+    margin: 0;
+    font-size: 16px;
+    text-align: right;
 }
 
 .menu-container{
@@ -277,7 +295,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 }
 
 .key-info{
-    padding: 0 20px 0 0;
+    padding: 0 12px 0 0;
     float:right;
 }
 
@@ -293,13 +311,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 }
 
 .footer-notes{
-    left: 40px;
+    left: 32px;
     bottom: 10px;
     position: absolute;
     width: auto;
     z-index: 10;
     background: rgba(32, 82, 127, 0.8);
-    padding: 15px 20px;
+    padding: 15px 15px;
     font-size: 20px;
     color: #fff;
     text-shadow: none;
@@ -334,5 +352,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #error-container div p{
     color: #D64203 !important;
-    font-size: 32px;
+    font-size: 36px;
+}
+
+.text-left{
+    text-align: left !important;
 }

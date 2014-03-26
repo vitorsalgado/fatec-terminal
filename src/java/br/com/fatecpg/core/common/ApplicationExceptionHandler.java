@@ -17,13 +17,13 @@
 package br.com.fatecpg.core.common;
 
 import br.com.fatecpg.core.entities.Log;
+import br.com.fatecpg.core.entities.Student;
 import br.com.fatecpg.core.repositories.LogRepository;
 import br.com.fatecpg.web.viewmodels.ErrorModel;
 
 import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.tomcat.dbcp.pool.PoolUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -40,14 +40,14 @@ public class ApplicationExceptionHandler implements HandlerExceptionResolver {
     private LogRepository logRepository;
     private String applicationName;
 
-    @Value("#{appProperties['applicationName']}")
-    public void setApplicationName(String applicationName) {
-        this.applicationName = applicationName;
-    }
-
     @Autowired
     public void setLogRepository(LogRepository logRepository) {
         this.logRepository = logRepository;
+    }
+
+    @Value("#{appProperties['applicationName']}")
+    public void setApplicationName(String applicationName) {
+        this.applicationName = applicationName;
     }
 
     @Override
@@ -57,34 +57,22 @@ public class ApplicationExceptionHandler implements HandlerExceptionResolver {
 
         String message = excptn.getMessage();
         String username = null;
-        StringBuilder errorDetailBuilder = new StringBuilder();
 
         if (message == null || message.isEmpty()) {
             message = "Erro de aplicação.";
         }
 
-        if (hsr.getUserPrincipal() != null) {
-            username = hsr.getUserPrincipal().getName();
-        }
-
-        errorDetailBuilder.append(excptn.toString());
-
-        if (excptn.getStackTrace() != null && excptn.getStackTrace().length > 0) {
-            
-            errorDetailBuilder.append("</br></br>");
-            
-            for (StackTraceElement stack : excptn.getStackTrace()) {
-                errorDetailBuilder
-                        .append(stack.getClassName()).append("</br>")
-                        .append(stack.getFileName()).append("</br>")
-                        .append(stack.getLineNumber()).append("</br>")
-                        .append(stack.getMethodName()).append("</br></br>");
+        if (hsr.getSession() != null) {
+            Object obj = hsr.getSession().getAttribute("student");
+            if (obj != null) {
+                Student student = (Student) obj;
+                username = student.getEnroll();
             }
         }
 
         log.setApplicationName(this.applicationName);
         log.setCreatedDate(new Date());
-        log.setDetails(errorDetailBuilder.toString());
+        log.setDetails(CommonHelper.formatStackTraceToString(excptn));
         log.setIpAddress(hsr.getLocalAddr());
         log.setMessage(message);
         log.setUrl(hsr.getRequestURI());
@@ -99,8 +87,7 @@ public class ApplicationExceptionHandler implements HandlerExceptionResolver {
         model.setErrorDate(log.getCreatedDate());
         model.setLogId(log.getId());
         model.setMessage(log.getMessage());
-        model.setDetail(log.getDetails());
 
-        return new ModelAndView("error", "model", model);
+        return new ModelAndView("/shared/error", "model", model);
     }
 }

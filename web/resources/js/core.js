@@ -25,14 +25,12 @@ var escapeKey = 27;
 var numpad0Key = 96;
 var numpad1Key = 97;
 var numpad2Key = 98;
-var numpad3Key = 0;
 var numpadAddKey = 107;
 var numpadSubtractKey = 109;
 
 var zeroKey = 48;
 var oneKey = 49;
 var twoKey = 50;
-var threeKey = 0;
 var subtractKey = 189;
 var equalKey = 187;
 
@@ -44,12 +42,12 @@ var blockAction = false;
 
 $(document).ready(function() {
 
+    $('#student-info').html('Bem-vindo(a)');
     $('#esc-description-text').html('SAIR');
     $('#txtEnrollment').val('');
     setTimeout($('#txtEnrollment').focus(), 100);
 
     $(this).ajaxError(function(event, jqxhr, settings, exception) {
-        logout();
         $('#login-errors').html(exception);
     });
 
@@ -76,7 +74,7 @@ $(document).ready(function() {
                 beforeSend: function() {
                     $('#txtEnrollment').prop('disabled', true);
                     $('#loading-container').show();
-                    
+
                     blockAction = true;
                 },
                 success: function(response) {
@@ -101,7 +99,7 @@ $(document).ready(function() {
                 complete: function() {
                     $('#txtEnrollment').prop('disabled', false);
                     $('#loading-container').hide();
-                    
+
                     blockAction = false;
                 }
             });
@@ -117,7 +115,7 @@ $(document).ready(function() {
             case numpad0Key:
                 if (isTxtEnrollmentFocused() || blockAction)
                     return;
-                
+
                 blockAction = true;
 
                 if (currentSelectedOption == 0)
@@ -131,7 +129,6 @@ $(document).ready(function() {
 
             case numpad1Key:
             case oneKey:
-                
                 if (isTxtEnrollmentFocused() || currentSelectedOption == 1 || blockAction)
                     return;
 
@@ -158,10 +155,9 @@ $(document).ready(function() {
                 });
 
                 break;
-                
+
             case numpad2Key:
             case twoKey:
-            
                 if (isTxtEnrollmentFocused() || currentSelectedOption == 2 || blockAction)
                     return;
 
@@ -169,7 +165,9 @@ $(document).ready(function() {
 
                 $.ajax({
                     type: 'POST',
-                    data: 'json',
+                    dataType: 'html',
+                    cache: false,
+                    timeout: 120000,
                     url: './student/history',
                     beforeSend: function() {
                         $('#index-content').hide();
@@ -185,13 +183,13 @@ $(document).ready(function() {
                         $('#loading-container').hide();
                         blockAction = false;
                     }
-                });                
-            
-            break;
+                });
+
+                break;
 
             case numpadAddKey:
             case equalKey:
-
+            case enterKey:
                 if (isTxtEnrollmentFocused() || currentSelectedOption == 0)
                     return;
 
@@ -202,7 +200,6 @@ $(document).ready(function() {
 
             case numpadSubtractKey:
             case subtractKey:
-
                 if (isTxtEnrollmentFocused() || currentSelectedOption == 0)
                     return;
 
@@ -223,7 +220,8 @@ function logout() {
         $('#txtEnrollment').val('');
         $('#login-overlay').fadeIn();
         $('#esc-description-text').html('SAIR');
-        
+        $('#student-info').html('Bem-vindo(a)');
+
         setTimeout($('#txtEnrollment').focus(), 100);
     });
 }

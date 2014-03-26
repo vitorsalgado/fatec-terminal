@@ -23,7 +23,7 @@ import java.util.List;
  *
  * @author Vitor Hugo Salgado <vsalgadopb@gmail.com>
  */
-public class EnrolledDisciplinesModel extends AbstractResponse {
+public class EnrolledDisciplinesModel extends AbstractModel {
 
     private List<EnrolledDiscipline> enrolledDisciplines;
 

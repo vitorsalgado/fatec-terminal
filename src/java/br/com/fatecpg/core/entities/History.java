@@ -24,16 +24,16 @@ import java.util.List;
  */
 public class History {
 
-    private String enroll;
+    private String enrollment;
     List<HistoryEntry> entries;
     private double efficiencyPercent;
 
-    public String getEnroll() {
-        return enroll;
+    public String getEnrollment() {
+        return enrollment;
     }
 
-    public void setEnroll(String enroll) {
-        this.enroll = enroll;
+    public void setEnrollment(String enrollment) {
+        this.enrollment = enrollment;
     }
 
     public List<HistoryEntry> getEntries() {
@@ -56,7 +56,7 @@ public class History {
         int total = 0;
 
         for (int i = 0; i < entries.size(); i++) {
-            i += entries.get(i).getDiscipline().getCredits();
+            total += entries.get(i).getDiscipline().getCredits();
         }
 
         return total;
@@ -66,7 +66,7 @@ public class History {
         int total = 0;
 
         for (int i = 0; i < entries.size(); i++) {
-            i += entries.get(i).getDiscipline().getTotalWorkload();
+            total += entries.get(i).getDiscipline().getTotalWorkload();
         }
 
         return total;

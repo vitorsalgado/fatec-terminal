@@ -27,7 +27,6 @@ public class ErrorModel {
     private String message;
     private int logId;
     private Date errorDate;
-    private String detail;
 
     public String getMessage() {
         return message;
@@ -52,13 +51,4 @@ public class ErrorModel {
     public void setErrorDate(Date errorDate) {
         this.errorDate = errorDate;
     }
-
-    public String getDetail() {
-        return detail;
-    }
-
-    public void setDetail(String detail) {
-        this.detail = detail;
-    }
-
 }

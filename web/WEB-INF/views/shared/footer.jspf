@@ -1,19 +1,19 @@
 <%@ page pageEncoding="UTF-8" %>
 <footer>
-    <div class="wrap">
+    <div>
         <div class="footer-notes">
             FATEC PG - 2014
             Powered by Coffee :)
         </div>
-        
+
         <span class="key-info">
             <img src="resources/images/esc.png" alt="ESC" /> <b>ESC</b> para <b><span id="esc-description-text">SAIR</span></b>
         </span>
         <spa class="key-info">
-            <img src="resources/images/plus.png" alt="Up" /><b>+</b> para <b>SUBIR A BARRA</b>
+            <img src="resources/images/minus.png" alt="-" /><b>-</b> para <b>SUBIR A BARRA</b>
         </spa>
         <spa class="key-info">
-            <img src="resources/images/minus.png" alt="Down" /><b>-</b> para <b>DESCER A BARRA</b>
+            <img src="resources/images/enter.png" alt="Enter" /> ou <img src="resources/images/plus.png" alt="+" /><b>ENTER</b> ou <b>+</b> para <b>DESCER A BARRA</b>
         </spa>
     </div>
 </footer>

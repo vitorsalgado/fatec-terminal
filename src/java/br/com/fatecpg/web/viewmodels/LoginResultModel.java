@@ -22,7 +22,7 @@ import br.com.fatecpg.core.entities.Student;
  *
  * @author vitor.salgado
  */
-public class LoginResponse extends AbstractResponse {
+public class LoginResultModel extends AbstractModel {
 
     private Student student;
 
