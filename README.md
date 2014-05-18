@@ -1,5 +1,9 @@
 # FATEC Terminal de Consultas
 
+## Projeto
+
+Desenvolvido com o propósito de melhorar meus conhecimentos na linguagem Java e alguns de seus frameworks.
+
 ## Tecnologias
 
 * Java, Javascript;
